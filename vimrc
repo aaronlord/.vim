@@ -89,10 +89,6 @@ nnoremap k gk
 nmap <C-Up>   ddkP
 nmap <C-Down> ddp
 
-" Buffers jumping & deleting
-nnoremap gb :ls<CR>:b<Space>
-nnoremap gd :ls<CR>:bd<Space>
-
 " Easier window navigation
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
@@ -130,6 +126,8 @@ Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
 Bundle "honza/vim-snippets"
+Bundle "jeetsukumaran/vim-buffergator"
+Bundle "mattn/emmet-vim"
 
 " NerdTREE
 map <C-k><C-b> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
@@ -143,7 +141,7 @@ let NERDTreeKeepTreeInNewTab=1
 
 " ctrlp
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:15'
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\.git$\|\.hg$\|\.svn$',
     \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
@@ -159,7 +157,7 @@ set showcmd                       " Show (partial) command in the status line
 let g:DisableAutoPHPFolding=1
 
 " phpqa
-let g:phpqa_codesniffer_args="--standard=/Users/aaron/phpcs.xml -s"
+let g:phpqa_codesniffer_args="--standard=/Users/aaron/code/phpcs.xml -s"
 
 " Tagbar
 nmap <C-k><C-t> :TagbarToggle<CR>
