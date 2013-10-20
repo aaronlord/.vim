@@ -6,6 +6,7 @@ syntax      on
 
 filetype    off
 filetype    plugin indent on
+au BufRead,BufNewFile *.blade.php set filetype=blade
 
 set mouse=a                     " Enable mouse, a=all
 set mousehide                   " Hide cursor while typing
@@ -27,7 +28,6 @@ set shiftround                  " Use multiple of shiftwidth when indenting with
 set backspace=indent,eol,start  " Allow backspacing over everything in insert mode
 set autoindent                  " Always set autoindenting on
 set copyindent                  " Copy the previous indentation on autoindenting
-set pastetoggle=<F8>            " Pastetoggle (sane indentation on pastes)
 set number                      " Always show line numbers
 set hlsearch                    " Highlight search results
 set ignorecase                  " Ignore case when searching
@@ -100,8 +100,8 @@ nnoremap <C-h> :tabprevious<CR>
 nnoremap <C-l> :tabnext<CR>
 
 " PHPUnit
-nmap <leader>ta :!phpunit<cr>
-nmap <leader>tt :!phpunit %:p<cr>
+nmap <leader>ta :!clear && phpunit<cr>
+nmap <leader>tt :!clear && phpunit %:p<cr>
 
 " Vundle
 set rtp+=~/.vim/bundle/vundle/
@@ -128,6 +128,8 @@ Bundle "garbas/vim-snipmate"
 Bundle "honza/vim-snippets"
 Bundle "jeetsukumaran/vim-buffergator"
 Bundle "mattn/emmet-vim"
+Bundle "sjl/gundo.vim"
+Bundle "johnhamelink/blade.vim"
 
 " NerdTREE
 map <C-k><C-b> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
@@ -161,3 +163,7 @@ let g:phpqa_codesniffer_args="--standard=/Users/aaron/code/phpcs.xml -s"
 
 " Tagbar
 nmap <C-k><C-t> :TagbarToggle<CR>
+
+" Gundo
+nnoremap <leader>u :GundoToggle<CR>
+let g:gundo_right=1
