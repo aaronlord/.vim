@@ -96,8 +96,8 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
 " Easier tab navigation
-nnoremap <C-h> :tabprevious<CR>
-nnoremap <C-l> :tabnext<CR>
+nmap <C-w><C-h> :tabprevious<CR>
+nmap <C-w><C-l> :tabnext<CR>
 
 " PHPUnit
 nmap <leader>ta :!clear && phpunit<cr>
