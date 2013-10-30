@@ -6,7 +6,8 @@ syntax      on
 
 filetype    off
 filetype    plugin indent on
-au BufRead,BufNewFile *.blade.php set filetype=blade
+
+autocmd BufRead,BufNewFile *.blade.php  set filetype=blade
 
 set mouse=a                     " Enable mouse, a=all
 set mousehide                   " Hide cursor while typing
@@ -73,6 +74,9 @@ nmap <leader>w :w!<cr>
 
 " Easy escaping to normal model
 imap jj <esc>
+
+" Delete to end of word in insert mode
+imap <C-e> <C-o>dw
 
 " Yank from the cursor to the end of the line, to be consistent with C and D
 nnoremap Y y$
@@ -159,7 +163,7 @@ set showcmd                       " Show (partial) command in the status line
 let g:DisableAutoPHPFolding=1
 
 " phpqa
-let g:phpqa_codesniffer_args="--standard=/Users/aaron/code/phpcs.xml -s"
+let g:phpqa_codesniffer_args="--standard=/Users/aaron/.code/phpcs/phpcs.xml -s"
 
 " Tagbar
 nmap <C-k><C-t> :TagbarToggle<CR>
