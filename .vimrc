@@ -1,11 +1,7 @@
 set nocompatible
 set t_Co=256
 
-colorscheme xoria256
-syntax      on
-
 filetype    off
-filetype    plugin indent on
 
 autocmd BufRead,BufNewFile *.blade.php  set filetype=blade
 
@@ -54,10 +50,6 @@ highlight clear LineNr          " Current line number row will have
 set list
 set listchars=tab:.\ ,trail:.,nbsp:.,precedes:<,extends:>
 
-" Display a 80 char line and color
-set colorcolumn=80
-highlight ColorColumn ctermbg=236
-
 " Swap files out of the project root
 set backupdir=~/.vim/backup/
 set directory=~/.vim/swap/
@@ -71,6 +63,7 @@ let g:mapleader = ","
 
 " Fast saves
 nmap <leader>w :w!<cr>
+nmap <leader>r :registers<cr>
 
 " Easy escaping to normal model
 imap jj <esc>
@@ -115,7 +108,6 @@ Bundle "scrooloose/nerdtree"
 Bundle "kien/ctrlp.vim"
 Bundle "Lokaltog/vim-powerline"
 Bundle "tpope/vim-fugitive"
-Bundle "airblade/vim-gitgutter"
 Bundle "mileszs/ack.vim"
 Bundle "Lokaltog/vim-easymotion"
 Bundle "Townk/vim-autoclose"
@@ -134,11 +126,12 @@ Bundle "jeetsukumaran/vim-buffergator"
 Bundle "mattn/emmet-vim"
 Bundle "sjl/gundo.vim"
 Bundle "johnhamelink/blade.vim"
+Bundle "kchmck/vim-coffee-script"
 
 " NerdTREE
 map <C-k><C-b> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 let NERDTreeShowBookmarks=1
-let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.svn', '\.bzr', '\.DS_Store', '\.sass-cache']
+let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git$', '\.svn', '\.bzr', '\.DS_Store', '\.sass-cache']
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=1
 let NERDTreeMouseMode=2
@@ -149,7 +142,7 @@ let NERDTreeKeepTreeInNewTab=1
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:15'
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+    \ 'dir':  '\.git$\|\.hg$\|\.svn|vendor|data|storage|_site|\.sass\-cache$',
     \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
 
 " Powerline
@@ -171,3 +164,13 @@ nmap <C-k><C-t> :TagbarToggle<CR>
 " Gundo
 nnoremap <leader>u :GundoToggle<CR>
 let g:gundo_right=1
+
+colorscheme xoria256
+syntax      on
+filetype    plugin indent on
+
+" Display a 80 char line and color
+set colorcolumn=80
+highlight ColorColumn ctermbg=236
+
+
