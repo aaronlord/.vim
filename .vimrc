@@ -104,16 +104,17 @@ nmap <leader>tt :!clear && phpunit %:p<cr>
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle "scrooloose/nerdtree"
-Bundle "kien/ctrlp.vim"
 Bundle "Lokaltog/vim-powerline"
 Bundle "tpope/vim-fugitive"
-Bundle "mileszs/ack.vim"
+Bundle "kien/ctrlp.vim"
+Bundle "scrooloose/nerdtree"
+Bundle "jeetsukumaran/vim-buffergator"
 Bundle "Lokaltog/vim-easymotion"
+Bundle "mileszs/ack.vim"
 Bundle "Townk/vim-autoclose"
 Bundle "terryma/vim-multiple-cursors"
 Bundle "ervandew/supertab"
-Bundle "jeetsukumaran/vim-buffergator"
+Bundle "honza/vim-snippets"
 Bundle "johnhamelink/blade.vim"
 Bundle "kchmck/vim-coffee-script"
 
@@ -141,19 +142,6 @@ set encoding=utf-8                " Necessary to show Unicode glyphs
 set noshowmode                    " Hide the default mode text
 set showcmd                       " Show (partial) command in the status line
 
-" PIV
-let g:DisableAutoPHPFolding=1
-
-" phpqa
-let g:phpqa_codesniffer_args="--standard=/Users/aaron/.code/phpcs/phpcs.xml -s"
-
-" Tagbar
-nmap <C-k><C-t> :TagbarToggle<CR>
-
-" Gundo
-nnoremap <leader>u :GundoToggle<CR>
-let g:gundo_right=1
-
 colorscheme xoria256
 syntax      on
 filetype    plugin indent on
@@ -161,5 +149,3 @@ filetype    plugin indent on
 " Display a 80 char line and color
 set colorcolumn=80
 highlight ColorColumn ctermbg=236
-
-
