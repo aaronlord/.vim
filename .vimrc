@@ -46,6 +46,8 @@ highlight clear LineNr          " Current line number row will have
                                 " same background color in relative
                                 " mode.
 
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/vendor/*,*/storage/*,*/cache/*,*/node_modules/*
+
 " Highlight problematic whitespace
 set list
 set listchars=tab:.\ ,trail:.,nbsp:.,precedes:<,extends:>
@@ -83,8 +85,10 @@ nnoremap j gj
 nnoremap k gk
 
 " Bubble sort single lines
-nmap <C-Up>   ddkP
-nmap <C-Down> ddp
+nmap <C-Up>     ddkP
+nmap <C-k><C-k> ddkP
+nmap <C-Down>   ddp
+nmap <C-j><C-j> ddp
 
 " Easier window navigation
 nmap <C-h> <C-w>h
@@ -104,23 +108,23 @@ nmap <leader>tt :!clear && phpunit %:p<cr>
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle "Lokaltog/vim-powerline"
-Bundle "tpope/vim-fugitive"
+Bundle "mileszs/ack.vim"
+Bundle "johnhamelink/blade.vim"
 Bundle "kien/ctrlp.vim"
 Bundle "scrooloose/nerdtree"
-Bundle "jeetsukumaran/vim-buffergator"
-Bundle "Lokaltog/vim-easymotion"
-Bundle "mileszs/ack.vim"
-Bundle "Townk/vim-autoclose"
-Bundle "terryma/vim-multiple-cursors"
 Bundle "ervandew/supertab"
-Bundle "honza/vim-snippets"
-Bundle "johnhamelink/blade.vim"
+Bundle "Townk/vim-autoclose"
+Bundle "jeetsukumaran/vim-buffergator"
 Bundle "kchmck/vim-coffee-script"
+Bundle "Lokaltog/vim-easymotion"
+Bundle "tpope/vim-fugitive"
+Bundle "terryma/vim-multiple-cursors"
+Bundle "Lokaltog/vim-powerline"
+Bundle "honza/vim-snippets"
 
 " NerdTREE
 map <C-k><C-b> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
-let NERDTreeShowBookmarks=1
+let NERDTreeShowBookmarks=0
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git$', '\.svn', '\.bzr', '\.DS_Store', '\.sass-cache']
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=1
@@ -130,10 +134,9 @@ let NERDTreeKeepTreeInNewTab=1
 
 " ctrlp
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:15'
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\.git$\|\.hg$\|\.svn|vendor|data|storage|_site|\.sass\-cache$',
-    \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:25,results:25'
+let g:ctrlp_max_files=0
+let g:ctrlp_max_depth=40
 
 " Powerline
 let g:Powerline_symbols = 'fancy'
