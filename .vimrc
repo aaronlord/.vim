@@ -131,6 +131,17 @@ filetype plugin indent on                                                      "
 set colorcolumn=80
 highlight ColorColumn ctermbg=236
 
+" GUI Fonts
+if has("gui_running")
+  if has("gui_gtk2")
+    set guifont=Inconsolata\ 12
+  elseif has("gui_macvim")
+    set guifont=Menlo\ Regular:h14
+  elseif has("gui_win32")
+    set guifont=Consolas:h11:cANSI
+  endif
+endif
+
 " Buffergator
 let g:buffergator_suppress_keymaps=1
 nmap <leader>b :BuffergatorToggle<CR>
@@ -138,7 +149,7 @@ nmap <leader>b :BuffergatorToggle<CR>
 " NerdTREE
 map <C-k><C-b> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 let NERDTreeShowBookmarks=0
-let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git$', '\.svn', '\.bzr', '\.DS_Store', '\.sass-cache']
+let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git$', '\.svn', '\.bzr', '\.DS_Store', '\.sass-cache', '\.\.$', '\.$']
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=1
 let NERDTreeMouseMode=2
@@ -152,7 +163,7 @@ let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
 
 " Powerline
-let g:Powerline_symbols = 'unicode'
+let g:Powerline_symbols = 'compatable'
 
 " Markdown
 let g:vim_markdown_folding_disabled=1
