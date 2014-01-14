@@ -163,7 +163,7 @@ let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
 
 " Powerline
-let g:Powerline_symbols = 'compatable'
+let g:Powerline_symbols = 'compatible'
 
 " Markdown
 let g:vim_markdown_folding_disabled=1
