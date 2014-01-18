@@ -5,8 +5,6 @@ filetype off                                                                   "
 " ==============================================================================
 " General settings
 
-autocmd BufRead,BufNewFile *.blade.php  set filetype=blade
-
 set mouse=a                                                                    " Enable mouse, a=all
 set mousehide                                                                  " Hide cursor while typing
 scriptencoding utf-8
@@ -125,6 +123,8 @@ Bundle "honza/vim-snippets"
 colorscheme xoria256
 syntax on
 filetype plugin indent on                                                      " required!
+autocmd BufRead,BufNewFile *.blade.php  set filetype=blade
+
 
 " Display a 80 char line and color
 set colorcolumn=80
@@ -143,6 +143,7 @@ let NERDTreeQuitOnOpen=1
 let NERDTreeMouseMode=2
 let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
+let NERDTreeDirArrows=1
 
 " ctrlp
 let g:ctrlp_working_path_mode='ra'
