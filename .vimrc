@@ -110,6 +110,7 @@ Bundle "ervandew/supertab"
 Bundle "Townk/vim-autoclose"
 Bundle "jeetsukumaran/vim-buffergator"
 Bundle "kchmck/vim-coffee-script"
+Bundle "plasticboy/vim-markdown"
 Bundle "Lokaltog/vim-easymotion"
 Bundle "tpope/vim-fugitive"
 Bundle "terryma/vim-multiple-cursors"
@@ -153,4 +154,7 @@ let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
 
 " Powerline
-let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'unicode'
+
+" Markdown
+let g:vim_markdown_folding_disabled=1
