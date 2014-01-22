@@ -144,6 +144,7 @@ let NERDTreeMouseMode=2
 let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
 let NERDTreeDirArrows=1
+let NERDTreeWinSize=50
 
 " ctrlp
 let g:ctrlp_working_path_mode='ra'
