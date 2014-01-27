@@ -98,6 +98,9 @@ nmap <C-w><C-l> :tabnext<CR>
 nmap <leader>ta :!clear && phpunit<cr>
 nmap <leader>tt :!clear && phpunit %:p<cr>
 
+" Tig
+nmap <leader>g :!clear && tig<cr>
+
 " Vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
