@@ -2,4 +2,5 @@ Do this: `./install.sh`
 
 Get this:
 
-![Vim](vim.png)
+![Vim](vim-1.png)
+![Vim](vim-2.png)
