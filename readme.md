@@ -2,7 +2,11 @@
 >
 > -- <cite>[Michael Lopp][1]</cite>
 
+### Installation
+
 `$ ./install.sh`
+
+### Screenshots
 
 ![Vim](vim-1.png)
 ![Vim](vim-2.png)
