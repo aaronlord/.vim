@@ -6,6 +6,13 @@
 
 `$ ./install.sh`
 
+```
+$ cd ~
+$ git clone git@github.com:aaronlord/.vim.git
+$ chmod +x ~/.vim/install.sh
+$ ~/.vim/install.sh
+```
+
 ### Screenshots
 
 ![Vim](vim-1.png)
