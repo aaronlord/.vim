@@ -148,13 +148,13 @@ let NERDTreeMouseMode=2
 let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
 let NERDTreeDirArrows=1
-let NERDTreeWinSize=50
+let NERDTreeWinSize=35
 
 " ctrlp
 let g:ctrlp_working_path_mode='ra'
-let g:ctrlp_match_window='bottom,order:btt,min:1,max:25,results:25'
+let g:ctrlp_match_window='bottom,order:btt,min:1,max:20,results:20'
 let g:ctrlp_max_files=0
-let g:ctrlp_max_depth=40
+let g:ctrlp_max_depth=20
 
 " Powerline
 let g:Powerline_symbols = 'fancy'
