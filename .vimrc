@@ -41,7 +41,7 @@ set noshowmode                                                                 "
 set showcmd                                                                    " Show (partial) command in the status line
 
 " Ignore common useless files
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/vendor/*,*/storage/*,*/cache/*,*/node_modules/*
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/vendor/*,*/storage/*,*/cache/*,*/node_modules/*
 
 " Highlight problematic whitespace
 set list
@@ -128,6 +128,7 @@ colorscheme xoria256
 syntax on
 filetype plugin indent on                                                      " required!
 autocmd BufRead,BufNewFile *.blade.php  set filetype=blade
+autocmd BufNewFile,BufRead *.json set ft=javascript
 
 
 " Display a 80 char line and color
@@ -141,7 +142,7 @@ nmap <leader>b :BuffergatorToggle<CR>
 " NerdTREE
 map <C-k><C-b> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 let NERDTreeShowBookmarks=0
-let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git$', '\.svn', '\.bzr', '\.DS_Store', '\.sass-cache']
+let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git$', '\.svn', '\.idea$', '\.bzr', '\.DS_Store', '\.sass-cache']
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=1
 let NERDTreeMouseMode=2
