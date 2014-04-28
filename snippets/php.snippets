@@ -1,0 +1,14 @@
+snippet serviceprovider
+	<?php
+
+	namespace ${1:Acme}\Providers;
+
+	use Illuminate\Support\ServiceProvider;
+
+	class ${2:Foo}ServiceProvider extends ServiceProvider
+	{
+		public function register()
+		{
+			${3}
+		}
+	}

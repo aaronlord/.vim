@@ -5,7 +5,7 @@ filetype off                                                                   "
 " ==============================================================================
 " General settings
 
-set mouse=a                                                                    " Enable mouse, a=all
+" set mouse=a                                                                    " Enable mouse, a=all
 set mousehide                                                                  " Hide cursor while typing
 scriptencoding utf-8
 set shortmess+=filmnrxoOtT                                                     " Abbrev. of messages (avoids 'hit enter')
@@ -112,7 +112,6 @@ Bundle "scrooloose/nerdtree"
 Bundle "ervandew/supertab"
 Bundle "Townk/vim-autoclose"
 Bundle "jeetsukumaran/vim-buffergator"
-Bundle "kchmck/vim-coffee-script"
 Bundle "plasticboy/vim-markdown"
 Bundle "Lokaltog/vim-easymotion"
 Bundle "tpope/vim-fugitive"
@@ -129,7 +128,6 @@ syntax on
 filetype plugin indent on                                                      " required!
 autocmd BufRead,BufNewFile *.blade.php  set filetype=blade
 autocmd BufNewFile,BufRead *.json set ft=javascript
-
 
 " Display a 80 char line and color
 set colorcolumn=80
@@ -162,3 +160,6 @@ let g:Powerline_symbols = 'fancy'
 
 " Markdown
 let g:vim_markdown_folding_disabled=1
+
+" Snippets
+let g:snippets_dir="~/.vim/snippets/"
