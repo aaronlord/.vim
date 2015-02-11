@@ -13,7 +13,7 @@ set virtualedit=onemore                                                        "
 set history=1000                                                               " Store a ton of history (default is 20)
 set hidden                                                                     " Allow buffer switching without saving
 set showmode                                                                   " Always show what mode we're currently editing in
-set nowrap                                                                     " Don't wrap lines
+"set nowrap                                                                     " Don't wrap lines
 set tabstop=4                                                                  " A tab is four spaces
 set smarttab
 set tags=tags
@@ -94,10 +94,6 @@ nmap <C-l> <C-w>l
 nmap <C-w><C-h> :tabprevious<CR>
 nmap <C-w><C-l> :tabnext<CR>
 
-" PHPUnit
-nmap <leader>ta :!clear && phpunit<cr>
-nmap <leader>tt :!clear && phpunit %:p<cr>
-
 " Tig
 nmap <leader>g :!clear && tig<cr>
 
@@ -105,8 +101,6 @@ nmap <leader>g :!clear && tig<cr>
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle "mileszs/ack.vim"
-Bundle "johnhamelink/blade.vim"
 Bundle "kien/ctrlp.vim"
 Bundle "scrooloose/nerdtree"
 Bundle "ervandew/supertab"
@@ -117,17 +111,13 @@ Bundle "Lokaltog/vim-easymotion"
 Bundle "tpope/vim-fugitive"
 Bundle "terryma/vim-multiple-cursors"
 Bundle "Lokaltog/vim-powerline"
-" Snippets
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
-Bundle "honza/vim-snippets"
+Bundle "fatih/vim-go"
 
 colorscheme xoria256
 syntax on
 filetype plugin indent on                                                      " required!
-autocmd BufRead,BufNewFile *.blade.php  set filetype=blade
 autocmd BufNewFile,BufRead *.json set ft=javascript
+autocmd BufNewFile,BufRead *.blade.php set ft=html
 
 " Display a 80 char line and color
 set colorcolumn=80
@@ -140,7 +130,7 @@ nmap <leader>b :BuffergatorToggle<CR>
 " NerdTREE
 map <C-k><C-b> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 let NERDTreeShowBookmarks=0
-let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git$', '\.svn', '\.idea$', '\.bzr', '\.DS_Store', '\.sass-cache']
+let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git$', '\.svn', '\.idea$', '\.bzr', '\.DS_Store', '\.sass-cache', '\.vagrant']
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=1
 let NERDTreeMouseMode=2
@@ -160,6 +150,3 @@ let g:Powerline_symbols = 'fancy'
 
 " Markdown
 let g:vim_markdown_folding_disabled=1
-
-" Snippets
-let g:snippets_dir="~/.vim/snippets/"
