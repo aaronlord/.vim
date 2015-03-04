@@ -60,6 +60,7 @@ let g:mapleader = ","
 
 " Fast saves
 nmap <leader>w :w!<cr>
+cmap w!! w !sudo tee > /dev/null %
 
 " Easy escaping to normal model
 imap jj <esc>
