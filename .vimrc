@@ -119,6 +119,8 @@ syntax on
 filetype plugin indent on                                                      " required!
 autocmd BufNewFile,BufRead *.json set ft=javascript
 autocmd BufNewFile,BufRead *.blade.php set ft=html
+autocmd BufNewFile,BufRead *.blade.php setlocal shiftwidth=2 tabstop=2
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
 
 " Display a 80 char line and color
 set colorcolumn=80
