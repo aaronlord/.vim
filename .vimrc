@@ -54,6 +54,8 @@ set directory=~/.vim/swap/
 " Remove search results with :H
 command! H let @/=""
 
+command! JSON %!python -m json.tool
+
 " Extra key combinations /w a leader key
 let mapleader = ","
 let g:mapleader = ","
