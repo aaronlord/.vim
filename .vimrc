@@ -100,6 +100,10 @@ nmap <C-w><C-l> :tabnext<CR>
 " Tig
 nmap <leader>g :!clear && tig<cr>
 
+" PHPUnit
+nmap <leader>ta :!clear && phpunit<cr>
+nmap <leader>tt :!clear && phpunit %:p<cr>
+
 " Vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -115,6 +119,8 @@ Bundle "tpope/vim-fugitive"
 Bundle "terryma/vim-multiple-cursors"
 Bundle "Lokaltog/vim-powerline"
 Bundle "fatih/vim-go"
+Bundle "jaxbot/browserlink.vim"
+Bundle "darthmall/vim-vue"
 
 colorscheme tomorrow-night
 syntax on
