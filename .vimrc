@@ -1,12 +1,28 @@
 " Skip initialization for vim-tiny or vim-small.
 if 0 | endif
 
-" NeoBundle required:
+
+" =============================================================================
+" NEOBUNDLE REQUIRED
+" =============================================================================
+
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'jeetsukumaran/vim-buffergator'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'terryma/vim-multiple-cursors'
 
-" General settings
+
+" =============================================================================
+" GENERAL
+" =============================================================================
+
 set nocompatible                    " iMproved
 set t_Co=256                        " 256 Colors
 set mousehide                       " Hide cursor while typing
@@ -41,86 +57,197 @@ set cursorline                      " Highlight current line
 set laststatus=2                    " Always show the statusline
 set noshowmode                      " Hide the default mode text
 set showcmd                         " Show (partial) command in the status line
-
-" Command <Tab> completion, list matches, then longest common part, then all.
-set wildmode=list:longest,full  
+set wildmode=list:longest,full      " Wild boys, wild boys, wild boys, dun dun dun dun, wild boys
 
 " Ignore common useless files
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/vendor/*,*/storage/*,*/cache/*,*/node_modules/*,*/bower_components/*
-
-" Highlight problematic whitespace
-set list
-set listchars=tab:.\ ,trail:.,nbsp:.,precedes:<,extends:>
 
 " Swap files out of the project root
 set backupdir=~/.vim/backup/
 set directory=~/.vim/swap/
 
-" Remove search results with :H
-command! H let @/=""
 
-" Extra key combinations /w a leader key
+" =============================================================================
+" STYLE
+" =============================================================================
+
+" Theme & character limit line
+colorscheme tomorrow-night
+set colorcolumn=80,120
+highlight ColorColumn ctermbg=236
+
+" Syntax
+syntax on
+autocmd BufNewFile,BufRead *.json set ft=javascript
+autocmd BufNewFile,BufRead *.blade.php set ft=html
+
+" Highlight annoying whitespace
+set list
+set listchars=tab:.\ ,trail:.,nbsp:.,precedes:<,extends:>
+
+
+" =============================================================================
+" CUSTOM MAPPINGS
+" =============================================================================
+
+" <leader> = ,
 let mapleader=","
 let g:mapleader=","
 
-" Save quickly, save sudo
+" :H removes search results
+command! H let @/=""
+
+" <leader>w to save, :w!! to sudo save
 nmap <leader>w :w!<cr>
 cmap w!! w !sudo tee > /dev/null %
 
-" Easy escaping to normal model
+" <leader>q to macro record
+noremap <Leader>q q
+noremap q <Nop>
+
+" jj escapes insert mode
 imap jj <esc>
 
-" Delete to end of word in insert mode
-imap <C-e> <C-o>dw
-
-" Yank from the cursor to the end of the line, to be consistent with C and D
+" Y yanks to the end of the line
 nnoremap Y y$
 
-" Visual shifting (does not exit Visual mode)
+" >, < tabs in/out visual mode
 vnoremap < <gv
 vnoremap > >gv
 
-" Down is really the next line
+" j, k behave as expected
 nnoremap j gj
 nnoremap k gk
 
-" Bubble sort single lines
+" Bubble sort lines
+" <C-Up>,   <C-k><C-k> up
+" <C-Down>, <C-j><C-j> down
 nmap <C-Up>     ddkP
 nmap <C-k><C-k> ddkP
 nmap <C-Down>   ddp
 nmap <C-j><C-j> ddp
 
-" Easier window navigation
+" <C-[h, j, k, l]> navigates to the [window left, down, up, right]
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
-" Easier tab navigation
+" <C-w><C-[h, l]> navigates to the previous and next tab
 nmap <C-w><C-h> :tabprevious<CR>
 nmap <C-w><C-l> :tabnext<CR>
 
-" Change the default :Explore style
-let g:netrw_liststyle=3
-
-" Theme
-colorscheme tomorrow-night
-syntax on
-autocmd BufNewFile,BufRead *.json set ft=javascript
-autocmd BufNewFile,BufRead *.blade.php set ft=html
-
-" 80 character line
-set colorcolumn=80
-highlight ColorColumn ctermbg=236
-
 " PHPUnit
-nmap <leader>ta :!clear && phpunit<cr>
-nmap <leader>tt :!clear && phpunit %:p<cr>
+nmap <leader>ta :!clear && phpunit<cr>                      " Run all tests
+nmap <leader>tt :!clear && phpunit %:p<cr>                  " Run this test
 
-" Format json
+" :JSON formats this json file
 command! JSON %!python -m json.tool
 
-" NeoBundle required:
+
+" =============================================================================
+" AIRLINE
+" =============================================================================
+
+let g:airline#extensions#whitespace#enabled=0
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#bufferline#enabled=1
+let g:airline_powerline_fonts=1
+
+
+" =============================================================================
+" Buffergator
+" =============================================================================
+
+let g:buffergator_suppress_keymaps=1
+nmap <leader>b :BuffergatorToggle<CR>
+
+
+" =============================================================================
+" NerdTREE
+" =============================================================================
+
+map <C-k><C-b> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+let NERDTreeShowBookmarks=0
+let NERDTreeIgnore=['\.pyc','\~$','\.swo$','\.swp$','\.git$','\.svn','\.idea$',
+    \ '\.bzr','\.DS_Store','\.sass-cache','\.vagrant']
+let NERDTreeChDirMode=0
+let NERDTreeQuitOnOpen=1
+let NERDTreeMouseMode=2
+let NERDTreeShowHidden=1
+let NERDTreeKeepTreeInNewTab=1
+let NERDTreeDirArrows=1
+let NERDTreeWinSize=40
+
+
+" =============================================================================
+" Ctrl-P
+" =============================================================================
+
+let g:ctrlp_working_path_mode='ra'
+let g:ctrlp_match_window='bottom,order:btt,min:1,max:20,results:20'
+let g:ctrlp_max_files=0
+let g:ctrlp_max_depth=20
+
+
+" =============================================================================
+" NEOCOMPLETE
+" =============================================================================
+
+let g:acp_enableAtStartup=0                                 " Disable AutoComplPop.
+let g:neocomplete#enable_at_startup=1                       " Use neocomplete.
+let g:neocomplete#enable_smart_case=1                       " Use smartcase.
+let g:neocomplete#sources#syntax#min_keyword_length=3       " Set minimum syntax keyword length.
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionaries.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+\ }
+
+" Define keyword pattern
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" <C-g> Undos completion
+inoremap <expr><C-g>     neocomplete#undo_completion()
+
+" <CR> performs the completion
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+
+" <TAB> selects the next item
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" <BS> closes popup and delete backword char.
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+
+" =============================================================================
+" NEOBUNDLE REQUIRED
+" =============================================================================
+
 call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
