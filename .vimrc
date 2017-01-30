@@ -17,6 +17,8 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'posva/vim-vue'
+NeoBundle 'beanworks/vim-phpfmt'
 
 
 " =============================================================================
@@ -58,6 +60,7 @@ set laststatus=2                    " Always show the statusline
 set noshowmode                      " Hide the default mode text
 set showcmd                         " Show (partial) command in the status line
 set wildmode=list:longest,full      " Wild boys, wild boys, wild boys, dun dun dun dun, wild boys
+set completeopt-=preview            " Disable that annoying af scratch window
 
 " Ignore common useless files
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/vendor/*,*/storage/*,*/cache/*,*/node_modules/*,*/bower_components/*
@@ -71,15 +74,11 @@ set directory=~/.vim/swap/
 " STYLE
 " =============================================================================
 
-" Theme & character limit line
-colorscheme tomorrow-night
-set colorcolumn=80,120
-highlight ColorColumn ctermbg=236
-
 " Syntax
 syntax on
 autocmd BufNewFile,BufRead *.json set ft=javascript
 autocmd BufNewFile,BufRead *.blade.php set ft=html
+autocmd BufNewFile,BufRead *.vue set ft=vue
 
 " Highlight annoying whitespace
 set list
@@ -251,3 +250,10 @@ let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
+
+" Theme & character limit line
+colorscheme tomorrow-night
+set colorcolumn=80,120
+highlight ColorColumn ctermbg=236
+
+
