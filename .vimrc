@@ -1,5 +1,3 @@
-" Neovim config ~/.config/nvim/init.vim redirects here.
-
 call plug#begin('~/.vim/plugged')
 
 Plug 'zivyangll/git-blame.vim'
@@ -20,6 +18,12 @@ Plug 'yggdroot/indentline'
 
 call plug#end()
 
+source includes/commands.vim
+source includes/keybinds.vim
+source includes/paths.vim
+source includes/settings.vim
+source includes/syntax.vim
+
 source includes/plugins/airline.vim
 source includes/plugins/buffergator.vim
 source includes/plugins/coc.vim
@@ -30,8 +34,3 @@ source includes/plugins/nerdtree.vim
 source includes/plugins/pt.vim
 source includes/plugins/workspace.vim
 
-source includes/commands.vim
-source includes/keybinds.vim
-source includes/paths.vim
-source includes/settings.vim
-source includes/syntax.vim
