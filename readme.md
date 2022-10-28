@@ -2,6 +2,20 @@
 >
 > -- <cite>[Michael Lopp][1]</cite>
 
+### Installation
+
+Install [Neovim](https://github.com/neovim/neovim).
+Install [vim-plug](https://github.com/junegunn/vim-plug)
+
+```
+$ cd ~
+$ git clone https://github.com/aaronlord/.vim.git
+$ ln -s ~/.config/nvim/init.vim .vimrc
+$ nvim
+```
+
+Install plugins with `:PlugInstall`, and fix any `:checkhealth` dependancy issues (node, python, php, etc).
+
 ### Screenshots
 
 ![Vim - Autocompleting](vim-1.png)
