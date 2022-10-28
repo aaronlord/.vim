@@ -18,19 +18,19 @@ Plug 'yggdroot/indentline'
 
 call plug#end()
 
-source includes/commands.vim
-source includes/keybinds.vim
-source includes/paths.vim
-source includes/settings.vim
-source includes/syntax.vim
+source ~/.vim/includes/commands.vim
+source ~/.vim/includes/keybinds.vim
+source ~/.vim/includes/paths.vim
+source ~/.vim/includes/settings.vim
+source ~/.vim/includes/syntax.vim
 
-source includes/plugins/airline.vim
-source includes/plugins/buffergator.vim
-source includes/plugins/coc.vim
-source includes/plugins/ctrlp.vim
-source includes/plugins/gitblame.vim
-source includes/plugins/gitgutter.vim
-source includes/plugins/nerdtree.vim
-source includes/plugins/pt.vim
-source includes/plugins/workspace.vim
+source ~/.vim/includes/plugins/airline.vim
+source ~/.vim/includes/plugins/buffergator.vim
+source ~/.vim/includes/plugins/coc.vim
+source ~/.vim/includes/plugins/ctrlp.vim
+source ~/.vim/includes/plugins/gitblame.vim
+source ~/.vim/includes/plugins/gitgutter.vim
+source ~/.vim/includes/plugins/nerdtree.vim
+source ~/.vim/includes/plugins/pt.vim
+source ~/.vim/includes/plugins/workspace.vim
 
