@@ -34,3 +34,6 @@ source ~/.vim/includes/plugins/nerdtree.vim
 source ~/.vim/includes/plugins/pt.vim
 source ~/.vim/includes/plugins/workspace.vim
 
+if !empty(glob('~/.vim/includes/extra.vim'))
+    source ~/.vim/includes/extra.vim
+endif
