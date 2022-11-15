@@ -30,6 +30,7 @@ source ~/.vim/includes/plugins/coc.vim
 source ~/.vim/includes/plugins/ctrlp.vim
 source ~/.vim/includes/plugins/gitblame.vim
 source ~/.vim/includes/plugins/gitgutter.vim
+source ~/.vim/includes/plugins/indentline.vim
 source ~/.vim/includes/plugins/nerdtree.vim
 source ~/.vim/includes/plugins/pt.vim
 source ~/.vim/includes/plugins/workspace.vim
