@@ -1,9 +1,9 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'zivyangll/git-blame.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
+Plug 'github/copilot.vim'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'machakann/vim-highlightedyank'
 Plug 'nazo/pt.vim'
@@ -15,6 +15,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'yggdroot/indentline'
+Plug 'zivyangll/git-blame.vim'
 
 call plug#end()
 
@@ -27,6 +28,7 @@ source ~/.vim/includes/syntax.vim
 source ~/.vim/includes/plugins/airline.vim
 source ~/.vim/includes/plugins/buffergator.vim
 source ~/.vim/includes/plugins/coc.vim
+source ~/.vim/includes/plugins/copilot.vim
 source ~/.vim/includes/plugins/ctrlp.vim
 source ~/.vim/includes/plugins/gitblame.vim
 source ~/.vim/includes/plugins/gitgutter.vim
