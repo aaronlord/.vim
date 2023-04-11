@@ -40,5 +40,5 @@ set list
 set listchars=tab:.\ ,trail:.,nbsp:.,precedes:<,extends:>
 
 " Ignore common useless files
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/vendor/*,*/storage/*,*/cache/*,*/node_modules/*,*/bower_components/*,*/.undodir/*
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/vendor/*,*/storage/*,*/cache/*,*/node_modules/*,*/bower_components/*,*/.undodir/*,*/.phpunit.cache/*
 

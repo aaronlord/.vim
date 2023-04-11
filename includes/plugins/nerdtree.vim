@@ -1,6 +1,6 @@
 map <C-k><C-b> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 let NERDTreeShowBookmarks=0
-let NERDTreeIgnore=['\.pyc','\~$','\.swo$','\.swp$','\.git$','\.svn','\.idea$', '\.bzr','\.DS_Store','\.sass-cache','\.vagrant', '\.undodir']
+let NERDTreeIgnore=['\.pyc','\~$','\.swo$','\.swp$','\.git$','\.svn','\.idea$', '\.bzr','\.DS_Store','\.sass-cache','\.vagrant', '\.undodir', '\.phpunit.cache']
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=1
 let NERDTreeMouseMode=2
