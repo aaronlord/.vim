@@ -4,6 +4,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
 Plug 'github/copilot.vim'
 Plug 'machakann/vim-highlightedyank'
+Plug 'itchyny/vim-gitbranch'
+Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lualine/lualine.nvim'
@@ -13,7 +15,6 @@ Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate' }
 Plug 'romgrk/barbar.nvim'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'thaerkh/vim-workspace'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'yggdroot/indentline'
@@ -33,10 +34,10 @@ source ~/.vim/includes/plugins/copilot.vim
 source ~/.vim/includes/plugins/gitblame.vim
 source ~/.vim/includes/plugins/gitgutter.vim
 source ~/.vim/includes/plugins/indentline.vim
-source ~/.vim/includes/plugins/telescope.lua
-source ~/.vim/includes/plugins/workspace.vim
 source ~/.vim/includes/plugins/lualine.lua
-source ~/.vim/includes/plugins/nvimtree.lua
+source ~/.vim/includes/plugins/startify.vim
+source ~/.vim/includes/plugins/telescope.lua
+source ~/.vim/includes/plugins/tree.lua
 
 if !empty(glob('~/.vim/includes/extra.vim'))
     source ~/.vim/includes/extra.vim
