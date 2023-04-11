@@ -1,15 +1,20 @@
 require('telescope').setup{
-  defaults = {
-    mappings = {
-      n = {
-          ['<C-d>'] = require('telescope.actions').delete_buffer
-      },
-      i = {
-        ['<C-h>'] = 'which_key',
-        ['<C-d>'] = require('telescope.actions').delete_buffer
-      }
+    pickers = {
+        find_files = {
+            hidden = true,
+        },
+    },
+    defaults = {
+        mappings = {
+            n = {
+                ['<C-d>'] = require('telescope.actions').delete_buffer
+            },
+            i = {
+                ['<C-h>'] = 'which_key',
+                ['<C-d>'] = require('telescope.actions').delete_buffer
+            }
+        }
     }
-  }
 }
 
 local builtin = require('telescope.builtin')

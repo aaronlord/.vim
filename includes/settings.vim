@@ -34,6 +34,7 @@ set noshowmode                      " Hide the default mode text
 set showcmd                         " Show (partial) command in the status line
 set wildmode=list:longest,full
 set guicursor=                      " Don't change the cursor
+set mouse+=a
 
 " Highlight annoying whitespace
 set list
