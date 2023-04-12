@@ -78,22 +78,8 @@ local function ins_right(component)
   table.insert(config.sections.lualine_x, component)
 end
 
-ins_left {
-  function()
-    return '▊'
-  end,
-  color = { fg = colors.magenta }, -- Sets highlighting of component
-  padding = { left = 0, right = 1 }, -- We don't need space before this
-}
-
-ins_left {
-  -- mode component
-  function()
-    return ''
-  end,
-  color = function()
-    -- auto change color according to neovims mode
-    local mode_color = {
+local function mode_color()
+    local mode_to_color = {
       n = colors.magenta,
       i = colors.green,
       v = colors.blue,
@@ -115,34 +101,41 @@ ins_left {
       ['!'] = colors.red,
       t = colors.red,
     }
-    return { fg = mode_color[vim.fn.mode()] }
+    return { fg = mode_to_color[vim.fn.mode()] }
+end
+
+
+ins_left {
+  -- mode component
+  function()
+    return '▊'
   end,
-  padding = { right = 1 },
+  color = mode_color,
+  padding = { left = 0, right = 1 }, -- We don't need space before this
 }
 
 ins_left {
   'branch',
   icon = '',
-  color = { fg = colors.violet, gui = 'bold' },
+  color = { fg = colors.orange, gui = 'bold' },
 }
 
 ins_left {
   'diff',
-  -- Is it me or the symbol for modified us really weird
-  symbols = { added = ' ', modified = '柳 ', removed = ' ' },
+  symbols = { added = '+', modified = '~', removed = '-' },
   diff_color = {
     added = { fg = colors.green },
-    modified = { fg = colors.orange },
+    modified = { fg = colors.yellow },
     removed = { fg = colors.red },
   },
   cond = conditions.hide_in_width,
 }
 
-ins_left {
-  'filename',
-  cond = conditions.buffer_not_empty,
-  color = { fg = colors.white, gui = 'bold' },
-}
+-- ins_left {
+--   'filename',
+--   cond = conditions.buffer_not_empty,
+--   color = { fg = colors.white, gui = 'bold' },
+-- }
 
 ins_left {
   'diagnostics',
@@ -176,6 +169,26 @@ ins_right {
 }
 
 ins_right {
+  -- Lsp server name .
+  function()
+    local msg = 'n/a'
+    local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+    local clients = vim.lsp.get_active_clients()
+    if next(clients) == nil then
+      return msg
+    end
+    for _, client in ipairs(clients) do
+      local filetypes = client.config.filetypes
+      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+        return client.name
+      end
+    end
+    return msg
+  end,
+  color = { fg = colors.green, gui = 'bold' },
+}
+
+ins_right {
   'o:encoding', -- option component same as &encoding in viml
   fmt = string.upper, -- I'm not sure why it's upper case either ;)
   cond = conditions.hide_in_width,
@@ -193,7 +206,7 @@ ins_right {
   function()
     return '▊'
   end,
-  color = { fg = colors.magenta },
+  color = mode_color,
   padding = { left = 1 },
 }
 
