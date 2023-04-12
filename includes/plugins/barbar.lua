@@ -6,6 +6,10 @@ require('barbar').setup {
         pinned = {
             button = '📍',
             filename = true
+        },
+        separator = {
+            left = '▊',
+            right = '▊'
         }
     }
 }
