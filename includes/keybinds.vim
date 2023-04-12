@@ -15,6 +15,7 @@ imap jj <esc>
 
 " Y yanks to the end of the line
 nnoremap Y y$
+vnoremap Yc "*yy
 
 " >, < tabs in/out visual mode
 vnoremap < <gv

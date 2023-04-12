@@ -1,15 +1,14 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-require("nvim-tree").setup({
-    sort_by = "case_sensitive",
+require('nvim-tree').setup({
+    sort_by = 'case_sensitive',
     hijack_cursor = true,
     system_open = {
-        cmd = "open",
+        cmd = 'open',
     },
     view = {
-        width = 30,
-        -- adaptive_size = true,
+        width = 30
     },
     renderer = {
         group_empty = true,
@@ -21,27 +20,24 @@ require("nvim-tree").setup({
                 folder_arrow = true,
             },
             glyphs = {
-                bookmark = "🔖",
+                bookmark = '🔖',
                 folder = {
-                    arrow_closed = "⏵",
-                    arrow_open = "⏷",
-                },
-                git = {
-                    unstaged = "✗",
-                    staged = "✓",
-                    unmerged = "⌥",
-                    renamed = "➜",
-                    untracked = "★",
-                    deleted = "⊖",
-                    ignored = "◌",
-                },
+                    arrow_closed = '⏵',
+                    arrow_open = '⏷',
+                }
             },
         },
+    },
+    git = {
+        ignore = false
     },
     filters = {
         dotfiles = false,
         custom = {
-            "^.git$"
+            '^.git$',
+            '^.phplint.cache$',
+            '^.phpunit.result.cache$',
+            '^.undodir$',
         }
     },
 })
