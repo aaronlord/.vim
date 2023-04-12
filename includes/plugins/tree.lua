@@ -64,6 +64,7 @@ require('nvim-tree').setup({
         custom = {
             '^.git$',
             '^.phplint.cache$',
+            '^.phpunit.cache$',
             '^.phpunit.result.cache$',
             '^.undodir$',
         }
