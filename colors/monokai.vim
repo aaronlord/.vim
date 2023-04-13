@@ -13,6 +13,7 @@ let g:colors_name = "Monokai"
 hi Cursor ctermfg=235 ctermbg=231 cterm=NONE guifg=#272822 guibg=#f8f8f0 gui=NONE
 hi Visual ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#49483e gui=NONE
 hi CursorLine ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi CursorLineNr cterm=NONE ctermfg=255
 hi CursorColumn ctermfg=NONE cterm=NONE guifg=NONE guibg=#ffffff gui=NONE
 hi ColorColumn ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#3c3d37 gui=NONE
 hi LineNr ctermfg=102 cterm=NONE guifg=#90908a guibg=#3c3d37 gui=NONE
@@ -108,16 +109,18 @@ hi cssBraces ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 
 hi BufferTabpageFill ctermbg=237
 hi BufferCurrent ctermbg=235
+hi BufferCurrentMod ctermbg=235
 hi BufferCurrentSign guifg=#f92672 ctermfg=197
 hi BufferCurrentTarget guifg=#f92672 ctermfg=197
-" hi BufferVisible ctermbg=237
-" hi BufferAlternative ctermbg=blue
-hi BufferInactive ctermbg=237
+hi BufferInactive ctermfg=102 ctermbg=237
+hi BufferInactiveMod ctermfg=102 ctermbg=237
 hi BufferInactiveSign ctermbg=237 ctermfg=237
-" hi BufferPart ctermbg=red
-" hi BufferOffest ctermbg=yellow
 
 hi CocUnusedHighlight ctermfg=242 ctermbg=NONE cterm=NONE guifg=#75715e guibg=NONE gui=NONE
-" hi CocUnderline gui=undercurl term=undercurl
+hi CocUnderline gui=undercurl term=undercurl
 " hi CocErrorHighlight ctermfg=red  guifg=#c4384b gui=undercurl term=undercurl
 " hi CocWarningHighlight ctermfg=yellow guifg=#c4ab39 gui=undercurl term=undercurl
+
+hi GitGutterAdd    ctermfg=2
+hi GitGutterChange ctermfg=3
+hi GitGutterDelete ctermfg=1

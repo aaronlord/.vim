@@ -116,12 +116,13 @@ ins_left {
 
 ins_left {
   'branch',
-  icon = '',
+  icon = '',
   color = { fg = colors.orange, gui = 'bold' },
 }
 
 ins_left {
   'diff',
+  -- symbols = { added = ' ', modified = '柳 ', removed = ' ' },
   symbols = { added = '+', modified = '~', removed = '-' },
   diff_color = {
     added = { fg = colors.green },
@@ -129,23 +130,6 @@ ins_left {
     removed = { fg = colors.red },
   },
   cond = conditions.hide_in_width,
-}
-
--- ins_left {
---   'filename',
---   cond = conditions.buffer_not_empty,
---   color = { fg = colors.white, gui = 'bold' },
--- }
-
-ins_left {
-  'diagnostics',
-  sources = { 'nvim_diagnostic' },
-  symbols = { error = ' ', warn = ' ', info = ' ' },
-  diagnostics_color = {
-    color_error = { fg = colors.red },
-    color_warn = { fg = colors.yellow },
-    color_info = { fg = colors.cyan },
-  },
 }
 
 -- Insert mid section. You can make any number of sections in neovim :)
@@ -156,20 +140,20 @@ ins_left {
   end,
 }
 
--- Add components to right sections
-
-ins_right { 'location' }
-
-ins_right { 'progress', color = { fg = colors.fg, gui = 'bold' } }
-
 ins_right {
-  -- filesize component
-  'filesize',
-  cond = conditions.buffer_not_empty,
+    'diagnostics',
+    sources = { 'nvim_diagnostic' },
+    symbols = { error = ' ', warn = ' ', info = ' ' },
+    diagnostics_color = {
+        color_error = { fg = colors.red },
+        color_warn = { fg = colors.yellow },
+        color_info = { fg = colors.cyan },
+    },
 }
 
+-- Add components to right sections
 ins_right {
-  -- Lsp server name .
+  -- LSP server name
   function()
     local msg = 'n/a'
     local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
@@ -185,20 +169,36 @@ ins_right {
     end
     return msg
   end,
-  color = { fg = colors.green, gui = 'bold' },
+  color = { fg = colors.blue, gui = 'bold' },
+}
+
+
+ins_right {
+    'location',
+    color = { fg = colors.fg, gui = 'bold' }
 }
 
 ins_right {
-  'o:encoding', -- option component same as &encoding in viml
-  fmt = string.upper, -- I'm not sure why it's upper case either ;)
+    'progress',
+    color = { fg = colors.fg, gui = 'bold' }
+}
+
+ins_right {
+  'o:encoding',
   cond = conditions.hide_in_width,
   color = { fg = colors.green, gui = 'bold' },
 }
 
 ins_right {
   'fileformat',
-  fmt = string.upper,
-  icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
+  icons_enabled = false,
+  color = { fg = colors.green, gui = 'bold' },
+}
+
+ins_right {
+  -- filesize component
+  'filesize',
+  cond = conditions.buffer_not_empty,
   color = { fg = colors.green, gui = 'bold' },
 }
 
