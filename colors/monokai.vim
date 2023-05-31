@@ -12,10 +12,10 @@ let g:colors_name = "Monokai"
 
 hi Cursor ctermfg=235 ctermbg=231 cterm=NONE guifg=#272822 guibg=#f8f8f0 gui=NONE
 hi Visual ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#49483e gui=NONE
-hi CursorLine ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=NONE gui=NONE
+hi CursorLine ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=NONE gui=NONE
 hi CursorLineNr cterm=NONE ctermfg=255
 hi CursorColumn ctermfg=NONE cterm=NONE guifg=NONE guibg=#ffffff gui=NONE
-hi ColorColumn ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#3c3d37 gui=NONE
+hi ColorColumn ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#3c3d37 gui=NONE
 hi LineNr ctermfg=102 cterm=NONE guifg=#90908a guibg=#3c3d37 gui=NONE
 hi VertSplit ctermfg=241 ctermbg=241 cterm=NONE guifg=#64645e guibg=#64645e gui=NONE
 hi MatchParen ctermfg=197 ctermbg=NONE cterm=underline guifg=#f92672 guibg=NONE gui=underline
@@ -107,19 +107,19 @@ hi cssValueLength ctermfg=141 ctermbg=NONE cterm=NONE guifg=#ae81ff guibg=NONE g
 hi cssCommonAttr ctermfg=81 ctermbg=NONE cterm=NONE guifg=#66d9ef guibg=NONE gui=NONE
 hi cssBraces ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 
-hi BufferTabpageFill ctermbg=237
+hi BufferTabpageFill ctermbg=236
 hi BufferCurrent ctermbg=235
 hi BufferCurrentMod ctermbg=235
 hi BufferCurrentSign guifg=#f92672 ctermfg=197
 hi BufferCurrentTarget guifg=#f92672 ctermfg=197
-hi BufferInactive ctermfg=102 ctermbg=237
-hi BufferInactiveMod ctermfg=102 ctermbg=237
-hi BufferInactiveSign ctermbg=237 ctermfg=237
+hi BufferInactive ctermfg=102 ctermbg=236
+hi BufferInactiveMod ctermfg=102 ctermbg=236
+hi BufferInactiveSign ctermbg=236 ctermfg=236
 
 hi CocUnusedHighlight ctermfg=242 ctermbg=NONE cterm=NONE guifg=#75715e guibg=NONE gui=NONE
-hi CocUnderline gui=undercurl term=undercurl
-" hi CocErrorHighlight ctermfg=red  guifg=#c4384b gui=undercurl term=undercurl
-" hi CocWarningHighlight ctermfg=yellow guifg=#c4ab39 gui=undercurl term=undercurl
+"hi CocUnderline cterm=undercurl gui=undercurl term=undercurl
+hi CocErrorHighlight cterm=undercurl gui=undercurl term=undercurl
+hi CocWarningHighlight cterm=undercurl gui=undercurl term=undercurl
 
 hi GitGutterAdd    ctermfg=2
 hi GitGutterChange ctermfg=3

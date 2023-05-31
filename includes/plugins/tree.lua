@@ -49,10 +49,6 @@ require('nvim-tree').setup({
             },
             glyphs = {
                 bookmark = '🔖',
-                folder = {
-                    arrow_closed = '⏵',
-                    arrow_open = '⏷',
-                }
             },
         },
     },
