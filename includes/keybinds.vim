@@ -28,10 +28,10 @@ nnoremap k gk
 " Bubble sort lines
 " <C-Up>,   <C-k><C-k> up
 " <C-Down>, <C-j><C-j> down
-nmap <C-Up>     ddkP
 nmap <C-k><C-k> ddkP
-nmap <C-Down>   ddp
 nmap <C-j><C-j> ddp
+vmap <C-k><C-k> :m '<-2<CR>gv=gv
+vmap <C-j><C-j> :m '>+1<CR>gv=gv
 
 " <C-[h, j, k, l]> navigates to the [window left, down, up, right]
 nmap <C-h> <C-w>h
