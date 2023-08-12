@@ -1,10 +1,12 @@
-" <leader> = ,
-let mapleader=","
-let g:mapleader=","
+let mapleader=" "
+let g:mapleader=" "
 
 " <leader>w to save, :w!! to sudo save
 nmap <leader>w :w!<cr>
 cmap w!! w !sudo tee > /dev/null %
+
+" <leader>p paste without overwriting register
+xnoremap <leader>p "_dP
 
 " <leader>q to macro record
 noremap <Leader>q q
@@ -38,8 +40,6 @@ nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
-
-nmap <Leader>r :.!python ~/.config/nvim/headwind.py<CR>
 
 " <C-w><C-[h, l]> navigates to the previous and next tab
 nmap <C-w><C-h> :tabprevious<CR>
