@@ -16,8 +16,9 @@ set expandtab                       " Expand tabs by default
 set shiftwidth=4                    " Number of spaces to use for autoindenting
 set shiftround                      " Use multiple of shiftwidth when indenting with '<' and '>'
 set backspace=indent,eol,start      " Allow backspacing over everything in insert mode
-set autoindent                      " Always set autoindenting on
-set copyindent                      " Copy the previous indentation on autoindenting
+" set autoindent                      " Always set autoindenting on
+" set copyindent                      " Copy the previous indentation on autoindenting
+set smartindent                     " Do smart indenting when starting a new line
 set number                          " Show line numbers
 set relativenumber                  " Show relative line numbers for all but the current
 set hlsearch                        " Highlight search results

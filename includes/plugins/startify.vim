@@ -1,3 +1,5 @@
+" :mksession
+
 function! s:gitFiles()
     let files = systemlist('git ls-files -om --exclude-standard 2>/dev/null')
     return map(files, "{'line': v:val, 'path': v:val}")
