@@ -13,7 +13,7 @@ noremap <Leader>q q
 noremap q <Nop>
 
 " jj escapes insert mode
-imap jj <esc>
+" imap jj <esc>
 
 " Y yanks to the end of the line
 nnoremap Y y$

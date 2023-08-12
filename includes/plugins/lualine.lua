@@ -117,7 +117,7 @@ ins_left {
 ins_left {
   'branch',
   icon = '',
-  color = { fg = colors.orange, gui = 'bold' },
+  color = { fg = colors.orange },
 }
 
 ins_left {
@@ -169,37 +169,37 @@ ins_right {
     end
     return msg
   end,
-  color = { fg = colors.blue, gui = 'bold' },
+  color = { fg = colors.blue },
 }
 
 
 ins_right {
     'location',
-    color = { fg = colors.fg, gui = 'bold' }
+    color = { fg = colors.fg }
 }
 
 ins_right {
     'progress',
-    color = { fg = colors.fg, gui = 'bold' }
+    color = { fg = colors.fg }
 }
 
 ins_right {
   'o:encoding',
   cond = conditions.hide_in_width,
-  color = { fg = colors.green, gui = 'bold' },
+  color = { fg = colors.green },
 }
 
 ins_right {
   'fileformat',
   icons_enabled = false,
-  color = { fg = colors.green, gui = 'bold' },
+  color = { fg = colors.green },
 }
 
 ins_right {
   -- filesize component
   'filesize',
   cond = conditions.buffer_not_empty,
-  color = { fg = colors.green, gui = 'bold' },
+  color = { fg = colors.green },
 }
 
 ins_right {
