@@ -116,6 +116,9 @@ hi BufferInactive ctermfg=102 ctermbg=236
 hi BufferInactiveMod ctermfg=102 ctermbg=236
 hi BufferInactiveSign ctermbg=236 ctermfg=236
 
+" hi TreesitterContextLineNumber ctermfg=255
+hi TreesitterContextSeparator ctermfg=236 ctermbg=NONE
+
 hi CocUnusedHighlight ctermfg=242 ctermbg=NONE cterm=NONE guifg=#75715e guibg=NONE gui=NONE
 "hi CocUnderline cterm=undercurl gui=undercurl term=undercurl
 hi CocErrorHighlight cterm=undercurl gui=undercurl term=undercurl

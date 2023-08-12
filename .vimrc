@@ -4,6 +4,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'github/copilot.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'machakann/vim-highlightedyank'
+Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovim/nvim-lspconfig'
@@ -13,9 +14,9 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate' }
+Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --ignore-platform-reqs --no-dev -o'}
 Plug 'romgrk/barbar.nvim'
-Plug 'terrastruct/d2-vim'
 Plug 'yggdroot/indentline'
 
 call plug#end()
@@ -37,6 +38,7 @@ source ~/.vim/includes/plugins/startify.vim
 source ~/.vim/includes/plugins/telescope.lua
 source ~/.vim/includes/plugins/tree.lua
 source ~/.vim/includes/plugins/treesitter.lua
+source ~/.vim/includes/plugins/undotree.vim
 
 if !empty(glob('~/.vim/includes/extra.vim'))
     source ~/.vim/includes/extra.vim
