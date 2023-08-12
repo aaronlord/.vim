@@ -13,6 +13,12 @@ require('telescope').setup{
                 ['<C-h>'] = 'which_key',
                 ['<C-d>'] = require('telescope.actions').delete_buffer
             }
+        },
+        file_ignore_patterns = {
+            ".git",
+            "node_modules",
+            "storage",
+            "vendor",
         }
     }
 }
