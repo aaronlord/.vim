@@ -18,7 +18,8 @@ set shiftround                      " Use multiple of shiftwidth when indenting 
 set backspace=indent,eol,start      " Allow backspacing over everything in insert mode
 set autoindent                      " Always set autoindenting on
 set copyindent                      " Copy the previous indentation on autoindenting
-set number                          " Always show line numbers
+set number                          " Show line numbers
+set relativenumber                  " Show relative line numbers for all but the current
 set hlsearch                        " Highlight search results
 set ignorecase                      " Ignore case when searching
 set smartcase                       " Ignore case if search pattern is all lowercase,
