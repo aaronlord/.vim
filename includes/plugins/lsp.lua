@@ -11,6 +11,7 @@ cmp.setup({
         documentation = cmp.config.window.bordered(),
     },
     mapping = {
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
         ['<Tab>'] = cmp_action.luasnip_supertab(),
         ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
     },
