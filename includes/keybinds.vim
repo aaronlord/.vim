@@ -1,8 +1,7 @@
 let mapleader=" "
 let g:mapleader=" "
 
-" <leader>w to save, :w!! to sudo save
-nmap <leader>w :w!<cr>
+" :w!! to sudo save
 cmap w!! w !sudo tee > /dev/null %
 
 " <leader>p paste without overwriting register
@@ -12,20 +11,12 @@ xnoremap <leader>p "_dP
 noremap <Leader>q q
 noremap q <Nop>
 
-" jj escapes insert mode
-" imap jj <esc>
-
-" Y yanks to the end of the line
-nnoremap Y y$
-vnoremap Yc "*yy
+" Yank to clipboard
+vnoremap yc "+y
 
 " >, < tabs in/out visual mode
 vnoremap < <gv
 vnoremap > >gv
-
-" j, k behave as expected
-nnoremap j gj
-nnoremap k gk
 
 " Bubble sort lines
 " <C-Up>,   <C-k><C-k> up

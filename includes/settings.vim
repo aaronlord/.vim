@@ -27,7 +27,7 @@ set smartcase                       " Ignore case if search pattern is all lower
 set visualbell                      " Don't beep
 set noerrorbells                    " More don't beep
 set autowrite                       " Save on buffer switch
-set timeoutlen=500                  " Reduce the delay after hiting the leader key
+" set timeoutlen=500                  " Reduce the delay after hiting the leader key
 set lazyredraw                      " Don't redraw while executing macros, performace++
 set autoread                        " Autoread when file changes from outside
 set cursorline                      " Highlight current line
