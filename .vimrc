@@ -20,6 +20,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate' }
 Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --ignore-platform-reqs --no-dev -o'}
 Plug 'romgrk/barbar.nvim'
+Plug 'tpope/vim-fugitive'
 Plug 'williamboman/mason-lspconfig.nvim' " LSP
 Plug 'williamboman/mason.nvim', " LSP
 Plug 'yggdroot/indentline'
