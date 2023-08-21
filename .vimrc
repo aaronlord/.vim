@@ -35,10 +35,11 @@ source ~/.vim/includes/syntax.vim
 
 source ~/.vim/includes/plugins/barbar.lua
 source ~/.vim/includes/plugins/copilot.vim
+source ~/.vim/includes/plugins/fugitive.lua
 source ~/.vim/includes/plugins/gitgutter.vim
 source ~/.vim/includes/plugins/indentline.vim
-source ~/.vim/includes/plugins/lualine.lua
 source ~/.vim/includes/plugins/lsp.lua
+source ~/.vim/includes/plugins/lualine.lua
 source ~/.vim/includes/plugins/startify.vim
 source ~/.vim/includes/plugins/telescope.lua
 source ~/.vim/includes/plugins/tree.lua
