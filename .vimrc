@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'L3MON4D3/LuaSnip' " LSP
 Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v2.x'}
 Plug 'airblade/vim-gitgutter'
+Plug 'chentoast/marks.nvim'
 Plug 'github/copilot.vim'
 Plug 'hrsh7th/cmp-nvim-lsp' " LSP
 Plug 'hrsh7th/nvim-cmp' " LSP
@@ -40,6 +41,7 @@ source ~/.vim/includes/plugins/gitgutter.vim
 source ~/.vim/includes/plugins/indentline.vim
 source ~/.vim/includes/plugins/lsp.lua
 source ~/.vim/includes/plugins/lualine.lua
+source ~/.vim/includes/plugins/marks.lua
 source ~/.vim/includes/plugins/startify.vim
 source ~/.vim/includes/plugins/telescope.lua
 source ~/.vim/includes/plugins/tree.lua
