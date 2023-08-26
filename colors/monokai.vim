@@ -1,7 +1,5 @@
-" Vim color file
-" Converted from Textmate theme Monokai using Coloration v0.3.2 (http://github.com/sickill/coloration)
-
 set background=dark
+
 highlight clear
 
 if exists("syntax_on")
@@ -14,6 +12,7 @@ hi Cursor ctermfg=235 ctermbg=231 cterm=NONE guifg=#272822 guibg=#f8f8f0 gui=NON
 hi Visual ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#49483e gui=NONE
 hi CursorLine ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=NONE gui=NONE
 hi CursorLineNr cterm=NONE ctermfg=255
+hi SignColumn ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 hi CursorColumn ctermfg=NONE cterm=NONE guifg=NONE guibg=#ffffff gui=NONE
 hi ColorColumn ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#3c3d37 gui=NONE
 hi LineNr ctermfg=102 cterm=NONE guifg=#90908a guibg=#3c3d37 gui=NONE
