@@ -76,8 +76,6 @@ return {
             vim.keymap.set("n", "<F4>", function() vim.lsp.buf.code_action() end, opts)
         end)
 
-        require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
-
         lsp.setup()
 
         vim.diagnostic.config({
