@@ -12,8 +12,8 @@ return {
         { "hrsh7th/cmp-nvim-lsp" },
         { "L3MON4D3/LuaSnip" },
     },
-    event = "BufReadPre", 
-    config = function () 
+    event = "BufReadPre",
+    config = function ()
         local lsp = require("lsp-zero")
 
         lsp.preset("recommended")

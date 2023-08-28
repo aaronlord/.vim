@@ -112,7 +112,6 @@ hi TabLineFill ctermbg=236
 
 hi BufferTabpages ctermbg=236 ctermfg=NONE
 hi BufferTabpageFill ctermbg=236 ctermfg=NONE
-
 hi BufferCurrent ctermbg=235
 hi BufferCurrentMod ctermbg=235
 hi BufferCurrentSign guifg=#f92672 ctermfg=197
@@ -132,3 +131,5 @@ hi CocWarningHighlight cterm=undercurl gui=undercurl term=undercurl
 hi GitGutterAdd    ctermfg=2
 hi GitGutterChange ctermfg=3
 hi GitGutterDelete ctermfg=1
+
+hi NeoTreeIndentMarker ctermfg=242 ctermbg=NONE cterm=NONE guifg=#75715e guibg=NONE gui=NONE

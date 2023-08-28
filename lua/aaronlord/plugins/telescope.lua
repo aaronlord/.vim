@@ -3,7 +3,7 @@ return {
     tag = "0.1.2",
     dependencies = {
         "nvim-lua/plenary.nvim",
-        "nvim-treesitter/nvim-treesitter"
+        "nvim-treesitter/nvim-treesitter",
     },
     keys = {
         {"<C-p>", "<cmd>lua require('telescope.builtin').find_files()<cr>"},

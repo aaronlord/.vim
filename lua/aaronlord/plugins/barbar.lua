@@ -1,5 +1,8 @@
 return {
     "romgrk/barbar.nvim",
+    dependencies = {
+        "nvim-tree/nvim-web-devicons"
+    },
     lazy = false,
     keys = {
         -- Move
@@ -24,9 +27,6 @@ return {
 
         -- Close
         { "<A-c>", "<Cmd>BufferClose<CR>", { noremap = true, silent = true } },
-
-        -- Pin
-        -- { "<A-p>", "<Cmd>BufferPin<CR>", {  noremap = true, silent = true } },
     },
     config = function () 
         vim.g.barbar_auto_setup = false
@@ -37,10 +37,6 @@ return {
             tabpages = true,
             icons = {
                 button = " ",
-                pinned = {
-                    button = "📍",
-                    filename = true
-                },
                 separator = {
                     left = "▊",
                     right = "▊"
