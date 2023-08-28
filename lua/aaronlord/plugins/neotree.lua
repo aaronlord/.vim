@@ -61,6 +61,12 @@ return {
             filtered_items = {
                 hide_dotfiles = false,
                 hide_gitignored = false,
+                never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
+                    ".git",
+                    ".phplint.cache",
+                    ".phpunit.cache",
+                    ".phpunit.result.cache",
+                },
             }
         }
     }
