@@ -106,7 +106,13 @@ hi cssValueLength ctermfg=141 ctermbg=NONE cterm=NONE guifg=#ae81ff guibg=NONE g
 hi cssCommonAttr ctermfg=81 ctermbg=NONE cterm=NONE guifg=#66d9ef guibg=NONE gui=NONE
 hi cssBraces ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
 
-hi BufferTabpageFill ctermbg=236
+"hi TabLine ctermbg=236
+"hi TabLineSel ctermbg=236
+hi TabLineFill ctermbg=236
+
+hi BufferTabpages ctermbg=236 ctermfg=NONE
+hi BufferTabpageFill ctermbg=236 ctermfg=NONE
+
 hi BufferCurrent ctermbg=235
 hi BufferCurrentMod ctermbg=235
 hi BufferCurrentSign guifg=#f92672 ctermfg=197

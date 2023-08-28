@@ -1,48 +1,51 @@
 return {
     "romgrk/barbar.nvim",
-    events = { "BufReadPre", "BufNewFile" },
+    lazy = false,
+    keys = {
+        -- Move
+        { "<A-,>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true } },
+        { "<A-.>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true } },
+
+        -- Re-order
+        { "<A-<>", "<Cmd>BufferMovePrevious<CR>", { noremap = true, silent = true } },
+        { "<A->>", "<Cmd>BufferMoveNext<CR>", { noremap = true, silent = true } },
+
+        -- Jump
+        { "<A-1>", "<Cmd>BufferGoto 1<CR>", { noremap = true, silent = true } },
+        { "<A-2>", "<Cmd>BufferGoto 2<CR>", { noremap = true, silent = true } },
+        { "<A-3>", "<Cmd>BufferGoto 3<CR>", { noremap = true, silent = true } },
+        { "<A-4>", "<Cmd>BufferGoto 4<CR>", { noremap = true, silent = true } },
+        { "<A-5>", "<Cmd>BufferGoto 5<CR>", { noremap = true, silent = true } },
+        { "<A-6>", "<Cmd>BufferGoto 6<CR>", { noremap = true, silent = true } },
+        { "<A-7>", "<Cmd>BufferGoto 7<CR>", { noremap = true, silent = true } },
+        { "<A-8>", "<Cmd>BufferGoto 8<CR>", { noremap = true, silent = true } },
+        { "<A-9>", "<Cmd>BufferGoto 9<CR>", { noremap = true, silent = true } },
+        { "<A-0>", "<Cmd>BufferLast<CR>", { noremap = true, silent = true } },
+
+        -- Close
+        { "<A-c>", "<Cmd>BufferClose<CR>", { noremap = true, silent = true } },
+
+        -- Pin
+        -- { "<A-p>", "<Cmd>BufferPin<CR>", {  noremap = true, silent = true } },
+    },
     config = function () 
         vim.g.barbar_auto_setup = false
 
-        require('barbar').setup {
+        require('barbar').setup({
+            highlight_visible = false,
+            animation = false,
+            tabpages = true,
             icons = {
-                button = ' ',
+                button = " ",
                 pinned = {
-                    button = '📍',
+                    button = "📍",
                     filename = true
                 },
                 separator = {
-                    left = '▊',
-                    right = '▊'
+                    left = "▊",
+                    right = "▊"
                 }
             }
-        }
-
-        local map = vim.api.nvim_set_keymap
-        local opts = { noremap = true, silent = true }
-
-        -- Move
-        map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
-        map('n', '<A-.>', '<Cmd>BufferNext<CR>', opts)
-
-        -- Re-order
-        map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
-        map('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
-
-        -- Jump
-        map('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', opts)
-        map('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', opts)
-        map('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', opts)
-        map('n', '<A-4>', '<Cmd>BufferGoto 4<CR>', opts)
-        map('n', '<A-5>', '<Cmd>BufferGoto 5<CR>', opts)
-        map('n', '<A-6>', '<Cmd>BufferGoto 6<CR>', opts)
-        map('n', '<A-7>', '<Cmd>BufferGoto 7<CR>', opts)
-        map('n', '<A-8>', '<Cmd>BufferGoto 8<CR>', opts)
-        map('n', '<A-9>', '<Cmd>BufferGoto 9<CR>', opts)
-        map('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
-
-        map('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
-
-        map('n', '<A-p>', '<Cmd>BufferPin<CR>', opts)
+        })
     end
 }

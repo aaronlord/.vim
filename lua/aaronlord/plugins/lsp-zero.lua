@@ -1,16 +1,16 @@
 return {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v2.x",
     dependencies = {
         -- LSP Support
-        {'neovim/nvim-lspconfig'},
-        {'williamboman/mason.nvim'},
-        {'williamboman/mason-lspconfig.nvim'},
+        { "neovim/nvim-lspconfig" },
+        { "williamboman/mason.nvim" },
+        { "williamboman/mason-lspconfig.nvim" },
 
         -- Autocompletion
-        {'hrsh7th/nvim-cmp'},
-        {'hrsh7th/cmp-nvim-lsp'},
-        {'L3MON4D3/LuaSnip'},
+        { "hrsh7th/nvim-cmp" },
+        { "hrsh7th/cmp-nvim-lsp" },
+        { "L3MON4D3/LuaSnip" },
     },
     event = "BufReadPre", 
     config = function () 
@@ -18,7 +18,7 @@ return {
 
         lsp.preset("recommended")
 
-        local cmp = require('cmp')
+        local cmp = require("cmp")
         local cmp_action = lsp.cmp_action()
 
         cmp.setup({
@@ -27,15 +27,15 @@ return {
                 documentation = cmp.config.window.bordered(),
             },
             mapping = {
-                ['<CR>'] = cmp.mapping.confirm({ select = false }),
-                ['<Tab>'] = cmp_action.luasnip_supertab(),
-                ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+                ["<CR>"] = cmp.mapping.confirm({ select = false }),
+                ["<Tab>"] = cmp_action.luasnip_supertab(),
+                ["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
             },
             sources = cmp.config.sources({
-                { name = 'nvim_lsp' },
+                { name = "nvim_lsp" },
             }, {
-                    { name = 'buffer' },
-                })
+                { name = "buffer" },
+            })
         })
 
         lsp.set_preferences({

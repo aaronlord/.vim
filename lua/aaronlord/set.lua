@@ -23,6 +23,17 @@ vim.opt.incsearch = true
 vim.opt.cursorline = true
 vim.opt.laststatus = 2
 
+vim.opt.conceallevel = 0
+
+vim.opt.list = true
+vim.opt.listchars = {
+    tab = ". ",
+    trail = ".",
+    nbsp = ".",
+    precedes = "<",
+    extends = ">",
+}
+
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
