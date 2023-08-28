@@ -68,6 +68,10 @@ return {
             vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
             vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
             vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+
+            vim.keymap.set({'n', 'x'}, '<leader>vf', function()
+                vim.lsp.buf.format({async = false, timeout_ms = 10000})
+            end, opts)
         end)
 
         lsp.setup()
