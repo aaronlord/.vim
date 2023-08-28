@@ -79,7 +79,8 @@ return {
         lsp.setup()
 
         vim.diagnostic.config({
-            virtual_text = true
+            virtual_text = true,
+            underline = false,
         })
 
         vim.api.nvim_create_autocmd({ "BufWritePost" }, {
