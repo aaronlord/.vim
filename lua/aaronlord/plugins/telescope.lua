@@ -33,10 +33,14 @@ return {
                     }
                 },
                 file_ignore_patterns = {
-                    ".git/",
+                    ".git",
                     "node_modules",
                     "storage",
                     "vendor",
+                    ".phplint.cache",
+                    ".phpunit.cache",
+                    ".phpunit.result.cache",
+                    ".php-cs-fixer.cache",
                 }
             }
         })
