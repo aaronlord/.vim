@@ -30,11 +30,13 @@ return {
             },
             git_status = {
                 symbols = {
+                    -- Disabling git seems wonky
+
                     -- Change type
-                    added     = "+",
-                    modified  = "~",
-                    deleted   = "-",
-                    renamed   = ">",
+                    added     = "", -- "+",
+                    modified  = "", -- "~",
+                    deleted   = "", -- "-",
+                    renamed   = "", -- ">",
                     -- Status type
                     untracked = "", -- "",
                     ignored   = "", -- "",
@@ -71,6 +73,16 @@ return {
                     ".php-cs-fixer.cache",
                 },
             }
+        },
+        event_handlers = {
+            {
+                event = "neo_tree_buffer_enter",
+                handler = function(arg)
+                    vim.cmd [[
+                        setlocal relativenumber
+                    ]]
+                end,
+            },
         },
     }
 }

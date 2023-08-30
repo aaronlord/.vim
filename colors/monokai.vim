@@ -134,3 +134,11 @@ hi GitGutterDelete ctermfg=1
 
 hi NeoTreeCursorLine ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=NONE gui=NONE
 hi NeoTreeIndentMarker ctermfg=242 ctermbg=NONE cterm=NONE guifg=#75715e guibg=NONE gui=NONE
+
+
+hi NeoTreeGitAdded ctermfg=2
+" hi NeoTreeGitConflict
+hi NeoTreeGitDeleted ctermfg=1
+" hi NeoTreeGitIgnored
+hi NeoTreeGitModified ctermfg=3
+" hi NeoTreeGitUntracked
