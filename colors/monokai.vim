@@ -132,4 +132,5 @@ hi GitGutterAdd    ctermfg=2
 hi GitGutterChange ctermfg=3
 hi GitGutterDelete ctermfg=1
 
+hi NeoTreeCursorLine ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=NONE gui=NONE
 hi NeoTreeIndentMarker ctermfg=242 ctermbg=NONE cterm=NONE guifg=#75715e guibg=NONE gui=NONE

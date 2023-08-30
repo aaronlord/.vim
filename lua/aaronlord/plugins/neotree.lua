@@ -11,6 +11,7 @@ return {
         {"<C-k><C-f>", ":Neotree reveal<cr>"},
     },
     opts = {
+        enable_diagnostics = false,
         window = {
             position = "current",
             mappings = {
@@ -25,6 +26,7 @@ return {
             name = {
                 trailing_slash = true,
                 use_git_status_colors = false,
+                highlight = "NeoTreeFileName",
             },
             git_status = {
                 symbols = {
@@ -69,6 +71,6 @@ return {
                     ".php-cs-fixer.cache",
                 },
             }
-        }
+        },
     }
 }
