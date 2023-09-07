@@ -1,0 +1,105 @@
+snippet scaffold_class
+	<?php
+
+	declare(strict_types=1);
+
+	namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
+
+	class ${2:`expand('%:t:r')`}
+	{
+		${0:${VISUAL}}
+	}
+
+snippet scaffold_context_class
+	<?php
+
+	declare(strict_types=1);
+
+	namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
+
+	use ${2:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`}\Strategies\\${3:StrategyInterface};
+
+	class ${4:`expand('%:t:r')`}
+	{
+		public function ${5:determine}(${6}): ${3:StrategyInterface}
+		{
+			${0:${VISUAL}}
+		}
+	}
+
+snippet scaffold_strategy_class
+	<?php
+
+	declare(strict_types=1);
+
+	namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
+
+	class ${4:`expand('%:t:r')`} implements ${3:StrategyInterface}
+	{
+		public function ${5:execute}(${6})
+		{
+			${0:${VISUAL}}
+		}
+	}
+
+snippet scaffold_interface
+	<?php
+
+	declare(strict_types=1);
+
+	namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
+
+	interface ${2:`expand('%:t:r')`}
+	{
+		${0:${VISUAL}}
+	}
+
+snippet scaffold_strategy_interface
+	<?php
+
+	declare(strict_types=1);
+
+	namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
+
+	interface ${2:`expand('%:t:r')`}
+	{
+		public function ${3:execute}(${4})
+		{
+			${0:${VISUAL}}
+		}
+	}
+
+snippet scaffold_test_class
+	<?php
+
+	declare(strict_types=1);
+
+	namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
+
+	use PHPUnit\Framework\TestCase;
+
+	class ${2:`expand('%:t:r')`} extends TestCase
+	{
+		public function test_${3:it_does_something}()
+		{
+			${0:${VISUAL}}
+		}
+	}
+
+snippet scaffold_laravel_test_class
+	<?php
+
+	declare(strict_types=1);
+
+	namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
+
+	use Tests\TestCase;
+	use PHPUnit\Framework\TestCase;
+
+	class ${2:`expand('%:t:r')`} extends TestCase
+	{
+		public function test_${3:it_does_something}()
+		{
+			${0:${VISUAL}}
+		}
+	}
