@@ -17,11 +17,11 @@ snippet scaffold:class:context
 
 	namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
 
-	use ${2:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`}\Strategies\\${3:StrategyInterface};
+	use $1\Strategies\\${3:StrategyInterface};
 
-	class ${4:`expand('%:t:r')`}
+	class ${2:`expand('%:t:r')`}
 	{
-		public function ${5:determine}(${6}): ${3:StrategyInterface}
+		public function ${4:determine}(): $3
 		{
 			${0:${VISUAL}}
 		}
@@ -105,16 +105,16 @@ snippet scaffold:method:test
 
 snippet scaffold:method:test-with-provider
 	/**
-	 * @dataProvider ${1:it_does_something}_data_provider
+	 * @dataProvider $1_data_provider
 	 */
-	public function test_${2:it_does_something}(${3}): void
+	public function test_${1:it_does_something}(${2}): void
 	{
 		${0:${VISUAL}}
 	}
 
-	public static function ${2:it_does_something}_data_provider(): array
+	public static function $1_data_provider(): array
 	{
 		return [
-			${0:${VISUAL}}
+			// 'it_does_something' => []
 		];
 	}
