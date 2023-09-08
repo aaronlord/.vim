@@ -1,4 +1,4 @@
-snippet scaffold_class
+snippet scaffold:class
 	<?php
 
 	declare(strict_types=1);
@@ -10,7 +10,7 @@ snippet scaffold_class
 		${0:${VISUAL}}
 	}
 
-snippet scaffold_context_class
+snippet scaffold:class:context
 	<?php
 
 	declare(strict_types=1);
@@ -27,7 +27,7 @@ snippet scaffold_context_class
 		}
 	}
 
-snippet scaffold_strategy_class
+snippet scaffold:class:strategy
 	<?php
 
 	declare(strict_types=1);
@@ -42,7 +42,7 @@ snippet scaffold_strategy_class
 		}
 	}
 
-snippet scaffold_interface
+snippet scaffold:interface
 	<?php
 
 	declare(strict_types=1);
@@ -54,7 +54,7 @@ snippet scaffold_interface
 		${0:${VISUAL}}
 	}
 
-snippet scaffold_strategy_interface
+snippet scaffold:interface:strategy
 	<?php
 
 	declare(strict_types=1);
@@ -69,7 +69,7 @@ snippet scaffold_strategy_interface
 		}
 	}
 
-snippet scaffold_test_class
+snippet scaffold:class:test
 	<?php
 
 	declare(strict_types=1);
@@ -80,13 +80,10 @@ snippet scaffold_test_class
 
 	class ${2:`expand('%:t:r')`} extends TestCase
 	{
-		public function test_${3:it_does_something}()
-		{
-			${0:${VISUAL}}
-		}
+		${0:${VISUAL}}
 	}
 
-snippet scaffold_laravel_test_class
+snippet scaffold:class:laravel-test
 	<?php
 
 	declare(strict_types=1);
@@ -94,12 +91,30 @@ snippet scaffold_laravel_test_class
 	namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
 
 	use Tests\TestCase;
-	use PHPUnit\Framework\TestCase;
 
 	class ${2:`expand('%:t:r')`} extends TestCase
 	{
-		public function test_${3:it_does_something}()
-		{
+		${0:${VISUAL}}
+	}
+
+snippet scaffold:method:test
+	public function test_${1:it_does_something}(): void
+	{
+		${0:${VISUAL}}
+	}
+
+snippet scaffold:method:test-with-provider
+	/**
+	 * @dataProvider ${1:it_does_something}_data_provider
+	 */
+	public function test_${2:it_does_something}(${3}): void
+	{
+		${0:${VISUAL}}
+	}
+
+	public static function ${2:it_does_something}_data_provider(): array
+	{
+		return [
 			${0:${VISUAL}}
-		}
+		];
 	}
