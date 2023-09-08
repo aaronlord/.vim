@@ -94,7 +94,6 @@ snippet scaffold_laravel_test_class
 	namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
 
 	use Tests\TestCase;
-	use PHPUnit\Framework\TestCase;
 
 	class ${2:`expand('%:t:r')`} extends TestCase
 	{
