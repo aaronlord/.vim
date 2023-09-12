@@ -98,7 +98,7 @@ snippet scaffold:class:laravel-test
 	}
 
 snippet scaffold:method:test
-	public function test_${1:it_does_something}(): void
+	public function test_it_${1:does_something}(): void
 	{
 		${0:${VISUAL}}
 	}
@@ -107,12 +107,12 @@ snippet scaffold:method:test-with-provider
 	/**
 	 * @dataProvider $1_data_provider
 	 */
-	public function test_${1:it_does_something}(${2}): void
+	public function test_it_${1:does_something}(${2}): void
 	{
 		${0:${VISUAL}}
 	}
 
-	public static function $1_data_provider(): array
+	public static function it_$1_data_provider(): array
 	{
 		return [
 			// 'it_does_something' => []
