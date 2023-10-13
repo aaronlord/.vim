@@ -10,6 +10,7 @@ return {
 
         configs.setup({
             ensure_installed = {
+                "astro",
                 "bash",
                 "dockerfile",
                 "html",
@@ -18,9 +19,11 @@ return {
                 "lua",
                 "php",
                 "rust",
+                "tsx",
+                "typescript",
                 "vim",
-                "yaml",
                 "vue",
+                "yaml",
             },
             highlight = {
                 enable = true,
@@ -28,6 +31,12 @@ return {
             indent = {
                 enable = true,
             },
+        })
+
+        vim.filetype.add({
+            extension = {
+                astro = "astro"
+            }
         })
     end
 }
