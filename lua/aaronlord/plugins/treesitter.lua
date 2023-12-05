@@ -4,9 +4,10 @@ return {
         "nvim-treesitter/nvim-treesitter-context"
     },
     build = ":TSUpdate",
-    event = "BufReadPre", 
-    config = function () 
+    event = "BufReadPre",
+    config = function ()
         local configs = require("nvim-treesitter.configs")
+        local parsers = require("nvim-treesitter.parsers")
 
         configs.setup({
             ensure_installed = {
@@ -14,9 +15,11 @@ return {
                 "bash",
                 "dockerfile",
                 "html",
+                "http",
                 "javascript",
                 "json",
                 "lua",
+                "markdown",
                 "php",
                 "rust",
                 "tsx",
@@ -33,9 +36,14 @@ return {
             },
         })
 
+        -- parsers.filetype_to_parsername.mdx = "markdown"
+
+        vim.treesitter.language.register('markdown', 'mdx')
+
         vim.filetype.add({
             extension = {
-                astro = "astro"
+                astro = "astro",
+                mdx = 'mdx'
             }
         })
     end
