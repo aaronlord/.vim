@@ -35,8 +35,8 @@ return {
                 file_ignore_patterns = {
                     "^.git",
                     "^node_modules",
+                    "vendor",
                     "^storage",
-                    "^vendor",
                     "^.phplint.cache",
                     "^.phpunit.cache",
                     "^.phpunit.result.cache",
