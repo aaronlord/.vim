@@ -1,3 +1,5 @@
+local extra = require("extra")(...)
+
 return {
     "tpope/vim-fugitive",
     dependencies = {
@@ -11,5 +13,9 @@ return {
     config = function ()
         vim.keymap.set("n", "g,", "<cmd>diffget //2<cr>")
         vim.keymap.set("n", "g.", "<cmd>diffget //3<cr>")
+
+        if extra then
+            extra.config()
+        end
     end
 }
