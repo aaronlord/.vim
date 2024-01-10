@@ -1,4 +1,4 @@
-local extra = require("extra")(...)
+local extra = require("aaronlord.helpers").extra(...)
 
 return {
     "tpope/vim-fugitive",
