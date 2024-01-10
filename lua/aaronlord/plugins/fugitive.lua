@@ -8,4 +8,8 @@ return {
         "G", "Git", "GRemove", "GDelete", "GMove", "GRename", "GBrowse",
         "Gdiffsplit", "Ghdiffsplit", "Gvdiffsplit", "Gclog",
     },
+    config = function ()
+        vim.keymap.set("n", "g,", "<cmd>diffget //2<cr>")
+        vim.keymap.set("n", "g.", "<cmd>diffget //3<cr>")
+    end
 }
