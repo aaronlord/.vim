@@ -12,6 +12,7 @@ return {
         { "hrsh7th/cmp-nvim-lsp" },
         { "L3MON4D3/LuaSnip" },
         { "saadparwaiz1/cmp_luasnip" },
+        { "onsails/lspkind.nvim" },
 
         -- Lint
         { "mfussenegger/nvim-lint" },
@@ -71,9 +72,42 @@ return {
         local cmp_action = lsp.cmp_action()
 
         cmp.setup({
+            --[[
             window = {
                 completion = cmp.config.window.bordered(),
                 documentation = cmp.config.window.bordered(),
+            },
+            ]]--
+            window = {
+                completion = {
+                    border = "rounded",
+                    -- winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+                    col_offset = -4,
+                    side_padding = 0,
+                },
+                documentation = {
+                    border = "rounded",
+                    -- winhighlight = "Normal:FloatBorder:Pmenu,Search:None",
+                    side_padding = 0,
+                }
+            },
+            formatting = {
+                fields = { "kind", "abbr", "menu" },
+                format = function(entry, vim_item)
+                    local kind = require("lspkind").cmp_format({
+                        mode = "symbol_text",
+                        maxwidth = 50
+                    })(entry, vim_item)
+
+                    local strings = vim.split(kind.kind, "%s", {
+                        trimempty = true
+                    })
+
+                    kind.kind = " " .. (strings[1] or "") .. " "
+                    kind.menu = "    " .. (strings[2]:lower() or "")
+
+                    return kind
+                end,
             },
             mapping = {
                 ["<CR>"] = cmp.mapping.confirm({ select = false }),

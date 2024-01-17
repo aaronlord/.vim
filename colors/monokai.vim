@@ -26,6 +26,7 @@ hi IncSearch ctermfg=235 ctermbg=186 cterm=NONE guifg=#272822 guibg=#e6db74 gui=
 hi Search ctermfg=NONE ctermbg=NONE cterm=underline guifg=NONE guibg=NONE gui=underline
 hi Directory ctermfg=141 ctermbg=NONE cterm=NONE guifg=#ae81ff guibg=NONE gui=NONE
 hi Folded ctermfg=242 ctermbg=235 cterm=NONE guifg=#75715e guibg=#333333 gui=NONE
+hi FloatBorder ctermfg=NONE ctermbg=NONE cterm=NONE
 
 hi Normal ctermfg=255 cterm=NONE guifg=#f8f8f2 guibg=#333333 gui=NONE
 hi Boolean ctermfg=141 ctermbg=NONE cterm=NONE guifg=#ae81ff guibg=NONE gui=NONE
@@ -132,3 +133,20 @@ hi NeoTreeGitModified ctermfg=3
 " hi NeoTreeGitConflict
 " hi NeoTreeGitIgnored
 " hi NeoTreeGitUntracked
+
+
+hi CmpItemAbbrDeprecated ctermfg=NONE ctermbg=242
+hi CmpItemAbbrMatch ctermbg=NONE ctermfg=81
+hi link CmpItemAbbrMatchFuzzy CmpItemAbbrMatch
+hi CmpItemMenu ctermbg=NONE ctermfg=242
+
+hi CmpItemKindVariable ctermbg=NONE ctermfg=141
+hi link CmpItemKindInterface CmpItemKindVariable
+hi link CmpItemKindText CmpItemKindVariable
+
+hi CmpItemKindFunction ctermbg=NONE ctermfg=148
+hi link CmpItemKindMethod CmpItemKindFunction
+
+hi CmpItemKindKeyword ctermbg=NONE ctermfg=197
+hi link CmpItemKindProperty CmpItemKindKeyword
+hi link CmpItemKindUnit CmpItemKindKeyword
