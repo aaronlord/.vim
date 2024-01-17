@@ -136,7 +136,7 @@ hi NeoTreeGitModified ctermfg=3
 
 
 hi CmpItemAbbrDeprecated ctermfg=NONE ctermbg=242
-hi CmpItemAbbrMatch ctermbg=NONE ctermfg=81
+hi CmpItemAbbrMatch ctermbg=NONE ctermfg=197
 hi link CmpItemAbbrMatchFuzzy CmpItemAbbrMatch
 hi CmpItemMenu ctermbg=NONE ctermfg=242
 
