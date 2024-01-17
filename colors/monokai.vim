@@ -21,7 +21,7 @@ hi MatchParen ctermfg=197 ctermbg=NONE cterm=underline guifg=#f92672 guibg=NONE 
 hi StatusLine ctermfg=231 ctermbg=241 cterm=bold guifg=#f8f8f2 guibg=#64645e gui=bold
 hi StatusLineNC ctermfg=231 ctermbg=241 cterm=NONE guifg=#f8f8f2 guibg=#64645e gui=NONE
 hi Pmenu ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE gui=NONE
-hi PmenuSel ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#49483e gui=NONE
+hi PmenuSel ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#49483e gui=NONE
 hi IncSearch ctermfg=235 ctermbg=186 cterm=NONE guifg=#272822 guibg=#e6db74 gui=NONE
 hi Search ctermfg=NONE ctermbg=NONE cterm=underline guifg=NONE guibg=NONE gui=underline
 hi Directory ctermfg=141 ctermbg=NONE cterm=NONE guifg=#ae81ff guibg=NONE gui=NONE
@@ -147,6 +147,6 @@ hi link CmpItemKindText CmpItemKindVariable
 hi CmpItemKindFunction ctermbg=NONE ctermfg=148
 hi link CmpItemKindMethod CmpItemKindFunction
 
-hi CmpItemKindKeyword ctermbg=NONE ctermfg=197
+hi CmpItemKindKeyword ctermbg=NONE ctermfg=81
 hi link CmpItemKindProperty CmpItemKindKeyword
 hi link CmpItemKindUnit CmpItemKindKeyword
