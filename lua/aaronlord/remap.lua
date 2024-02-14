@@ -15,8 +15,8 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 -- Bubble sort lines
-vim.keymap.set("n", "<C-k><C-k>", "ddkP")
 vim.keymap.set("n", "<C-j><C-j>", "ddp")
+vim.keymap.set("n", "<C-k><C-k>", "ddkP")
 vim.keymap.set("v", "<C-k><C-k>", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "<C-j><C-j>", ":m '>+1<CR>gv=gv")
 

@@ -12,11 +12,11 @@ return {
             cyan     = '#66d9ef', -- '#008080',
             darkblue = '#081633',
             green    = '#a6e22e', -- '#98be65',
-            orange   = '#FF8800',
+            orange   = '#ff8800',
             violet   = '#ae81ff', -- '#a9a1e1',
             magenta  = '#ff005f',
             blue     = '#51afef',
-            red      = '#BF3E3E', -- '#ec5f67',
+            red      = '#bf3e3e', -- '#ec5f67',
         }
 
         local conditions = {
@@ -115,44 +115,13 @@ return {
         }
 
         ins_left {
-            'branch',
-            icon = '',
-            color = { fg = colors.orange },
-        }
-
-        ins_left {
-            'diff',
-            -- symbols = { added = ' ', modified = '柳 ', removed = ' ' },
-            symbols = { added = '+', modified = '~', removed = '-' },
-            diff_color = {
-                added = { fg = colors.green },
-                modified = { fg = colors.yellow },
-                removed = { fg = colors.red },
-            },
-            cond = conditions.hide_in_width,
-        }
-
-        -- Insert mid section. You can make any number of sections in neovim :)
-        -- for lualine it's any number greater then 2
-        ins_left {
-            function()
-                return '%='
-            end,
-        }
-
-        ins_right {
-            'diagnostics',
-            sources = { 'nvim_diagnostic' },
-            symbols = { error = ' ', warn = ' ', info = ' ' },
-            diagnostics_color = {
-                color_error = { fg = colors.red },
-                color_warn = { fg = colors.yellow },
-                color_info = { fg = colors.cyan },
-            },
+            'filetype',
+            icons_enabled = false,
+            color = { fg = colors.fg },
         }
 
         -- Add components to right sections
-        ins_right {
+        ins_left {
             -- LSP server name
             function()
                 local msg = 'n/a'
@@ -169,9 +138,46 @@ return {
                 end
                 return msg
             end,
-            color = { fg = colors.blue },
+            color = { fg = colors.cyan },
         }
 
+        ins_left {
+            'diagnostics',
+            sources = { 'nvim_diagnostic' },
+            symbols = { error = ' ', warn = ' ', info = ' ' },
+            diagnostics_color = {
+                color_error = { fg = colors.red },
+                color_warn = { fg = colors.yellow },
+                color_info = { fg = colors.cyan },
+            },
+        }
+
+        -- Insert mid section. You can make any number of sections in neovim :)
+        -- for lualine it's any number greater then 2
+        ins_left {
+            function()
+                return '%='
+            end,
+        }
+
+        --[[
+        ins_left {
+            'branch',
+            icon = '',
+            color = { fg = colors.orange },
+        }
+
+        ins_right {
+            'diff',
+            symbols = { added = '+', modified = '~', removed = '-' },
+            diff_color = {
+                added = { fg = colors.green },
+                modified = { fg = colors.yellow },
+                removed = { fg = colors.red },
+            },
+            cond = conditions.hide_in_width,
+        }
+        --]]
 
         ins_right {
             'location',
@@ -190,16 +196,10 @@ return {
         }
 
         ins_right {
-            'fileformat',
-            icons_enabled = false,
-            color = { fg = colors.green },
-        }
-
-        ins_right {
             -- filesize component
             'filesize',
             cond = conditions.buffer_not_empty,
-            color = { fg = colors.green },
+            color = { fg = colors.yellow },
         }
 
         ins_right {
