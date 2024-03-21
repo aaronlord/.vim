@@ -4,10 +4,12 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-treesitter/nvim-treesitter",
+        "nvim-telescope/telescope-live-grep-args.nvim"
     },
     keys = {
         {"<C-p>", "<cmd>lua require('telescope.builtin').find_files()<cr>"},
-        {"<C-f>", "<cmd>lua require('telescope.builtin').live_grep()<cr>"},
+        -- {"<C-f>", "<cmd>lua require('telescope.builtin').live_grep()<cr>"},
+        {"<C-f>", "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>"},
         {"<C-s>", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>"},
         {"<leader>b", "<cmd>lua require('telescope.builtin').buffers()<cr>"},
         {"<leader>:", "<cmd>lua require('telescope.builtin').command_history()<cr>"},
@@ -34,13 +36,14 @@ return {
                 },
                 file_ignore_patterns = {
                     "^.git",
-                    "^node_modules",
-                    "vendor",
-                    "^storage",
+                    "^.php-cs-fixer.cache",
                     "^.phplint.cache",
                     "^.phpunit.cache",
                     "^.phpunit.result.cache",
-                    "^.php-cs-fixer.cache",
+                    "^node_modules",
+                    "^public",
+                    "^storage",
+                    "vendor",
                 }
             }
         })
