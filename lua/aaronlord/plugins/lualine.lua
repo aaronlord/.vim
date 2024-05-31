@@ -3,6 +3,9 @@ return {
     config = function ()
         local lualine = require('lualine')
 
+        local colors = require('cyberdream.colors').default
+
+        --[[
         -- Color table for highlights
         -- stylua: ignore
         local colors = {
@@ -18,6 +21,7 @@ return {
             blue     = '#51afef',
             red      = '#bf3e3e', -- '#ec5f67',
         }
+        --]]
 
         local conditions = {
             buffer_not_empty = function()
@@ -104,7 +108,6 @@ return {
             return { fg = mode_to_color[vim.fn.mode()] }
         end
 
-
         ins_left {
             -- mode component
             function()
@@ -138,18 +141,20 @@ return {
                 end
                 return msg
             end,
-            color = { fg = colors.cyan },
+            -- color = { fg = colors.cyan },
         }
 
         ins_left {
             'diagnostics',
             sources = { 'nvim_diagnostic' },
             symbols = { error = ' ', warn = ' ', info = ' ' },
+            --[[
             diagnostics_color = {
                 color_error = { fg = colors.red },
                 color_warn = { fg = colors.yellow },
                 color_info = { fg = colors.cyan },
             },
+            --]]
         }
 
         -- Insert mid section. You can make any number of sections in neovim :)

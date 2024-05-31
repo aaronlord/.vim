@@ -10,6 +10,36 @@ snippet scaffold:class
 		${0:${VISUAL}}
 	}
 
+snippet scaffold:class:action
+	<?php
+
+	declare(strict_types=1);
+
+	namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
+
+	class ${2:`expand('%:t:r')`}
+	{
+		public function ${3:execute}(): void
+		{
+			${0:${VISUAL}}
+		}
+	}
+
+snippet scaffold:class:dto
+	<?php
+
+	declare(strict_types=1);
+
+	namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
+
+	class ${2:`expand('%:t:r')`}
+	{
+		public function __construct(
+			${0:${VISUAL}}
+		) {
+		}
+	}
+
 snippet scaffold:class:context
 	<?php
 
@@ -105,7 +135,7 @@ snippet scaffold:method:test
 
 snippet scaffold:method:test-with-provider
 	/**
-	 * @dataProvider $1_data_provider
+	 * @dataProvider it_$1_data_provider
 	 */
 	public function test_it_${1:does_something}(${2}): void
 	{

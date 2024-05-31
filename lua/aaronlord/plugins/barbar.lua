@@ -39,7 +39,7 @@ return {
                 button = " ",
                 separator = {
                     left = "▊",
-                    right = "▊"
+                    -- right = "▊"
                 }
             }
         })
