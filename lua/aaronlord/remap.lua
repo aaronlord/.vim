@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Paste without overwriting register
 vim.keymap.set("x", "<leader>p", [["_dP]])
@@ -6,6 +7,8 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 -- Remap macro record
 vim.keymap.set("n", "<leader>q", "q")
 vim.keymap.set("n", "q", "<nop>")
+
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Yank to clipboard
 vim.keymap.set("v", "yc", [["+y]])
@@ -29,3 +32,4 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 -- <C-w><C-[h, l]> navigates to the previous and next tab
 vim.keymap.set("n", "<C-w><C-h>", ":tabprevious<CR>")
 vim.keymap.set("n", "<C-w><C-l>", ":tabnext<CR>")
+

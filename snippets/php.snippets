@@ -1,150 +1,268 @@
 snippet scaffold:class
-	<?php
+    <?php
 
-	declare(strict_types=1);
+    declare(strict_types=1);
 
-	namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
+    namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
 
-	class ${2:`expand('%:t:r')`}
-	{
-		${0:${VISUAL}}
-	}
+    class ${2:`expand('%:t:r')`}
+    {
+        ${0:${VISUAL}}
+    }
 
 snippet scaffold:class:action
-	<?php
+    <?php
 
-	declare(strict_types=1);
+    declare(strict_types=1);
 
-	namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
+    namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
 
-	class ${2:`expand('%:t:r')`}
-	{
-		public function ${3:execute}(): void
-		{
-			${0:${VISUAL}}
-		}
-	}
+    class ${2:`expand('%:t:r')`}
+    {
+        public function ${3:execute}(): void
+        {
+            ${0:${VISUAL}}
+        }
+    }
+
+snippet scaffold:class:pipeline
+    <?php
+
+    declare(strict_types=1);
+
+    namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
+
+    use Illuminate\Pipeline\Pipeline as BasePipeline;
+
+    class ${2:`expand('%:t:r')`}
+    {
+        public function __construct(
+            protected BasePipeline \$pipeline
+        ) {
+        }
+
+        public function send(${3:mixed} \$${4:data}): $3
+        {
+            return \$this->pipeline
+                ->send(\$$4)
+                ->through([
+                    ${0}
+                ])
+                ->thenReturn();
+        }
+    }
+
+snippet scaffold:class:pipe
+    <?php
+
+    declare(strict_types=1);
+
+    namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
+
+    use Closure;
+
+    class ${2:`expand('%:t:r')`}
+    {
+        /**
+         * @param Closure($3):$3 \$next
+         */
+        public function handle(${3:mixed} \$${4:data}, Closure \$next): $3
+        {
+            return ${0:\$next(\$$4);}
+        }
+    }
 
 snippet scaffold:class:dto
-	<?php
+    <?php
 
-	declare(strict_types=1);
+    declare(strict_types=1);
 
-	namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
+    namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
 
-	class ${2:`expand('%:t:r')`}
-	{
-		public function __construct(
-			${0:${VISUAL}}
-		) {
-		}
-	}
+    class ${2:`expand('%:t:r')`}
+    {
+        public function __construct(
+            ${0:${VISUAL}}
+        ) {
+        }
+    }
+
+snippet scaffold:class:mother
+    <?php
+
+    declare(strict_types=1);
+
+    namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
+
+    class ${2:`expand('%:t:r')`}
+    {
+        public static function create(
+            ${0:${VISUAL}}
+        ) {
+            return new ${3:`substitute(expand('%:t:r'), 'Mother', '', 'g')`}(
+            );
+        }
+    }
 
 snippet scaffold:class:context
-	<?php
+    <?php
 
-	declare(strict_types=1);
+    declare(strict_types=1);
 
-	namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
+    namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
 
-	use $1\Strategies\\${3:StrategyInterface};
+    use $1\Strategies\\${3:StrategyInterface};
 
-	class ${2:`expand('%:t:r')`}
-	{
-		public function ${4:determine}(): $3
-		{
-			${0:${VISUAL}}
-		}
-	}
+    class ${2:`expand('%:t:r')`}
+    {
+        public function ${4:determine}(): $3
+        {
+            ${0:${VISUAL}}
+        }
+    }
 
 snippet scaffold:class:strategy
-	<?php
+    <?php
 
-	declare(strict_types=1);
+    declare(strict_types=1);
 
-	namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
+    namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
 
-	class ${4:`expand('%:t:r')`} implements ${3:StrategyInterface}
-	{
-		public function ${5:execute}(${6})
-		{
-			${0:${VISUAL}}
-		}
-	}
+    class ${4:`expand('%:t:r')`} implements ${3:StrategyInterface}
+    {
+        public function ${5:execute}(${6})
+        {
+            ${0:${VISUAL}}
+        }
+    }
 
 snippet scaffold:interface
-	<?php
+    <?php
 
-	declare(strict_types=1);
+    declare(strict_types=1);
 
-	namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
+    namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
 
-	interface ${2:`expand('%:t:r')`}
-	{
-		${0:${VISUAL}}
-	}
+    interface ${2:`expand('%:t:r')`}
+    {
+        ${0:${VISUAL}}
+    }
 
 snippet scaffold:interface:strategy
-	<?php
+    <?php
 
-	declare(strict_types=1);
+    declare(strict_types=1);
 
-	namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
+    namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
 
-	interface ${2:`expand('%:t:r')`}
-	{
-		public function ${3:execute}(${4})
-		{
-			${0:${VISUAL}}
-		}
-	}
+    interface ${2:`expand('%:t:r')`}
+    {
+        public function ${3:execute}(${4})
+        {
+            ${0:${VISUAL}}
+        }
+    }
+
+snippet scaffold:trait
+    <?php
+
+    declare(strict_types=1);
+
+    namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
+
+    trait ${2:`expand('%:t:r')`}
+    {
+        ${0:${VISUAL}}
+    }
+
+snippet scaffold:enum
+    <?php
+
+    declare(strict_types=1);
+
+    namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
+
+    enum ${2:`expand('%:t:r')`}
+    {
+        ${0:${VISUAL}}
+    }
 
 snippet scaffold:class:test
-	<?php
+    <?php
 
-	declare(strict_types=1);
+    declare(strict_types=1);
 
-	namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
+    namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
 
-	use PHPUnit\Framework\TestCase;
+    use PHPUnit\Framework\TestCase;
 
-	class ${2:`expand('%:t:r')`} extends TestCase
-	{
-		${0:${VISUAL}}
-	}
+    class ${2:`expand('%:t:r')`} extends TestCase
+    {
+        ${0:${VISUAL}}
+    }
 
 snippet scaffold:class:laravel-test
-	<?php
+    <?php
 
-	declare(strict_types=1);
+    declare(strict_types=1);
 
-	namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
+    namespace ${1:`substitute(substitute(substitute(expand('%:p:h'), getcwd()..'/', '', ''), '/', '\', 'g'), '^.', '\U&', '')`};
 
-	use Tests\TestCase;
+    use Illuminate\Foundation\Testing\RefreshDatabase;
+    use Tests\TestCase;
 
-	class ${2:`expand('%:t:r')`} extends TestCase
-	{
-		${0:${VISUAL}}
-	}
+    class ${2:`expand('%:t:r')`} extends TestCase
+    {
+        use RefreshDatabase;
+
+        ${0:${VISUAL}}
+    }
 
 snippet scaffold:method:test
-	public function test_it_${1:does_something}(): void
-	{
-		${0:${VISUAL}}
-	}
+    public function test_it_${1:does_something}(): void
+    {
+        ${0:${VISUAL}}
+    }
 
 snippet scaffold:method:test-with-provider
-	/**
-	 * @dataProvider it_$1_data_provider
-	 */
-	public function test_it_${1:does_something}(${2}): void
-	{
-		${0:${VISUAL}}
-	}
+    /**
+     * @dataProvider it_$1_data_provider
+     */
+    public function test_it_${1:does_something}(${2}): void
+    {
+        ${0:${VISUAL}}
+    }
 
-	public static function it_$1_data_provider(): array
-	{
-		return [
-			// 'it_does_something' => []
-		];
-	}
+    /**
+     * @return array<string, array<mixed>>
+     */
+    public static function it_$1_data_provider(): array
+    {
+        return [
+            // 'with something' => []
+        ];
+    }
+
+snippet scaffold:method:__construct
+    public function __construct(
+        ${0:${VISUAL}}
+    ) {
+    }
+
+snippet scaffold:method:public
+    public function ${1:method}(${2}): ${3:void}
+    {
+        ${0:${VISUAL}}
+    }
+
+snippet scaffold:method:protected
+    protected function ${1:method}(${2}): ${3:void}
+    {
+        ${0:${VISUAL}}
+    }
+
+snippet scaffold:method:private
+    private function ${1:method}(${2}): ${3:void}
+    {
+        ${0:${VISUAL}}
+    }

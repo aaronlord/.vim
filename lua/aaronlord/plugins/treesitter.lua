@@ -25,6 +25,7 @@ return {
                 "tsx",
                 "typescript",
                 "vim",
+                "vimdoc",
                 "vue",
                 "yaml",
             },
@@ -35,8 +36,6 @@ return {
                 enable = true,
             },
         })
-
-        -- parsers.filetype_to_parsername.mdx = "markdown"
 
         vim.treesitter.language.register('markdown', 'mdx')
 

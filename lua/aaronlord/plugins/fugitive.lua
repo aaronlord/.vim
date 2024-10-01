@@ -1,5 +1,3 @@
-local extra = require("aaronlord.helpers").extra(...)
-
 return {
     "tpope/vim-fugitive",
     dependencies = {
@@ -14,8 +12,8 @@ return {
         vim.keymap.set("n", "g,", "<cmd>diffget //2<cr>")
         vim.keymap.set("n", "g.", "<cmd>diffget //3<cr>")
 
-        if extra then
-            extra.config()
-        end
+        vim.g.fugitive_gitlab_domains = {
+            "gitlab.vctools.co.uk"
+        }
     end
 }
