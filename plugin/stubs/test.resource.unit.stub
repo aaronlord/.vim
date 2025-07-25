@@ -1,0 +1,27 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use App\Shared\Infrastructure\Support\Mother;
+use {{ fully_qualified_class }};
+
+use function Tests\Helpers\resourceToArray;
+
+mutates({{ class }}::class);
+
+describe('toArray', function (): void {
+    it('transforms the data', function (): void {
+        $data = null; // Mother::make(Data::class);
+
+        $sut = new {{ class }}($data);
+
+        $array = resourceToArray($sut);
+
+        expect($array)
+            ->toBe([
+                'id' => 48,
+            ]);
+    });
+});

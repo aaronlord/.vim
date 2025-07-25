@@ -16,10 +16,4 @@ $ nvim
 
 Be sure to run `:checkhealth` dependancy issues (node, python, php, etc).
 
-### Screenshots
-
-![Vim - Autocompleting](vim-1.png)
-![Vim - File browsing](vim-2.png)
-![Vim - File searching](vim-3.png)
-
 [1]:http://www.randsinrepose.com/archives/2009/11/02/the_foamy_rules_for_rabid_tools.html

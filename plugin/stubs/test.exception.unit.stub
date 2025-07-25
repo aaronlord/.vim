@@ -1,0 +1,28 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Tests\Unit\Shared\Application\Exceptions;
+
+use App\Shared\Application\Exceptions\AppException;
+use {{ fully_qualified_class }};
+use Exception;
+
+mutates({{ class }}::class);
+
+it('is an instance of', function (string $class) {
+    /** @var class-string $class */
+    expect(new {{ class }}())->toBeInstanceOf($class);
+})->with([
+    AppException::class,
+    Exception::class,
+])->todo();
+
+it('has default values', function () {
+    $sut = new {{ class }}();
+
+    expect($sut->getMessage())->toBe('Exception');
+    expect($sut->getCode())->toBe(0);
+    expect($sut->context())->toBe([]);
+    expect($sut->getPrevious())->toBeNull();
+})->todo();

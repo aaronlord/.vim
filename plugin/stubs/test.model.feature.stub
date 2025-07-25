@@ -1,0 +1,47 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use {{ fully_qualified_class }};
+use App\Shared\Infrastructure\Models\Classic\User;
+use Carbon\CarbonImmutable;
+
+describe('attributes', function (): void {
+    it('is arrayable', function (): void {
+        $model = {{ class }}::factory()
+            ->create()
+            ->fresh();
+
+        assert($model instanceof {{ class }});
+
+        expect($model->toArray())->toHaveKeys([
+            'EDIT_Who',
+            'EDIT_Date',
+        ]);
+    })->todo();
+
+    it('casts attibutes', function (): void {
+        $model = {{ class }}::factory()
+            ->create()
+            ->fresh();
+
+        assert($model instanceof {{ class }});
+
+        expect($model->EDIT_Date)->toBeInstanceOf(CarbonImmutable::class);
+    })->todo();
+});
+
+describe('relationships', function (): void {
+    it('belongs to an editor', function (): void {
+        $model = {{ class }}::factory()
+            ->for(User::factory(), 'editor')
+            ->create()
+            ->fresh();
+
+        assert($model instanceof {{ class }});
+
+        expect($model->editor)->toBeInstanceOf(User::class);
+    })->todo();
+});

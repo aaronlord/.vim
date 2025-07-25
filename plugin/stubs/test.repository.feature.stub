@@ -1,0 +1,21 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use {{ fully_qualified_class }};
+
+mutates({{ class }}::class);
+
+describe('di', function (): void {
+    it('resolves from the container', function (string $class): void {
+        expect(app($class))->toBeInstanceOf({{ class }}::class);
+    })->with([
+        'via the concrete' => {{ class }} ::class,
+        // 'via the domains interface' => {{ class }}Interface::class,
+    ])
+    ->todo();
+});
+
+{{ describes }}

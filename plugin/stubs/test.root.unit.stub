@@ -1,0 +1,11 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use {{ fully_qualified_class }};
+
+mutates({{ class }}::class);
+
+{{ describes }}

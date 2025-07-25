@@ -1,0 +1,39 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use {{ fully_qualified_class }};
+use InvalidArgumentException;
+
+mutates({{ class }}::class);
+
+describe('instantiation', function () {
+    it('instantiates from new', function () {
+        $sut = new {{ class }}();
+
+        expect($sut)->toBeInstanceOf({{ class }}::class);
+    })->todo();
+
+    it('instantiates from make)', function () {
+        $sut = {{ class }}::make();
+
+        expect($sut)->toBeInstanceOf({{ class }}::class);
+    })->todo();
+});
+
+it('compares two values', function () {
+    expect(new {{ class }}())
+        ->toBe(new {{ class }}())
+        ->not->toBe(new {{ class }}());
+})->todo();
+
+it('throws an exception when the value is invalid', function (string $message) {
+    expect(fn () => new {{ class }}())
+        ->toThrow(InvalidArgumentException::class, $message);
+})->with([
+    'something' => [
+        'message' => 'Invalid',
+    ],
+])->todo();

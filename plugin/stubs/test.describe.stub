@@ -1,0 +1,7 @@
+describe('{{ method }}', function () {
+    it('does something', function () {
+        $sut = app({{ class }}::class);
+
+        expect($sut)->toBeInstanceOf({{ class }}::class);
+    })->todo();
+});
