@@ -1,6 +1,6 @@
 vim.g.indentLine_fileTypeExclude = {
-  "http",
-  "json",
-  "markdown",
-  "neo-tree",
+    "http",
+    "json",
+    "markdown",
+    "neo-tree",
 }

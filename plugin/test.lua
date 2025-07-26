@@ -1,3 +1,5 @@
+-- A shitty plugin to generate and open tests for Laravel projects
+
 local function find_project_root()
     -- Look for common Laravel project indicators
     local markers = {
@@ -82,7 +84,7 @@ local function get_stub_file(plugin_dir, file_base, class, test_type)
         local stub_type = stub:match("test%.(.+)%.stub$")
         if stub_type and not stub:match("test%." .. test_type) then -- Skip test-type specific ones we already checked
             -- Try to match the class name ending with the stub type
-            local type_pattern = stub_type:gsub("%.handler$", "") -- Remove ".handler" if present
+            local type_pattern = stub_type:gsub("%.handler$", "")   -- Remove ".handler" if present
             local class_suffix = class_lower:match("(" .. type_pattern .. ")$")
 
             if class_suffix then
@@ -175,7 +177,7 @@ end
 
 local function open_test(test_type)
     local current_file = vim.fn.expand('%:p'):gsub("^/+", "/") -- Normalize leading slashes
-    local project_root = find_project_root():gsub("^/+", "/") -- Normalize leading slashes
+    local project_root = find_project_root():gsub("^/+", "/")  -- Normalize leading slashes
 
     if not project_root then
         vim.api.nvim_err_writeln("Could not find project root")
@@ -346,7 +348,7 @@ local tmux_target = "2"
 
 local function run_test()
     local current_file = vim.fn.expand('%:p'):gsub("^/+", "/") -- Normalize leading slashes
-    local project_root = find_project_root():gsub("^/+", "/") -- Normalize leading slashes
+    local project_root = find_project_root():gsub("^/+", "/")  -- Normalize leading slashes
 
     if not project_root then
         vim.api.nvim_err_writeln("Could not find project root")

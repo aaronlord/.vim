@@ -1,7 +1,7 @@
 return {
-  lazy = false,
-  "airblade/vim-gitgutter",
-  config = function()
-    require("plugins.config.gitgutter")
-  end
+    lazy = false,
+    "airblade/vim-gitgutter",
+    config = function()
+        require("plugins.config.gitgutter")
+    end
 }

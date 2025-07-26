@@ -1,26 +1,7 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.smartindent = true
-
-vim.opt.wrap = false
-
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.undodir"
-vim.opt.undofile = true
-
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
-
-vim.opt.cursorline = true
-vim.opt.laststatus = 2
-
-vim.opt.conceallevel = 0
+vim.opt.mouse = 'a'
 
 vim.opt.list = true
 vim.opt.listchars = {
@@ -31,11 +12,30 @@ vim.opt.listchars = {
     extends = ">",
 }
 
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
 
-vim.opt.updatetime = 50
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 
-vim.opt.colorcolumn = "80,120"
+vim.opt.breakindent = true
+
 vim.opt.cursorline = true
+vim.opt.colorcolumn = "80,120"
+
+vim.opt.scrolloff = 10
+
+vim.opt.confirm = true
+
+vim.opt.signcolumn = "yes"
+
+vim.opt.showmode = false
+
+vim.opt.undofile = true
+vim.opt.swapfile = false
+
+vim.opt.updatetime = 250

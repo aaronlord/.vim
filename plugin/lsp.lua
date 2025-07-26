@@ -1,3 +1,4 @@
+-- UI improvements for nvim's built-in LSP
 vim.diagnostic.config({
     virtual_text = true,
     underline = true,

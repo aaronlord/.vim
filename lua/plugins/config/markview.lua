@@ -1,9 +1,10 @@
 require("markview").setup({
-  preview = {
-    filetypes = {
-      "markdown",
-      "codecompanion",
+    preview = {
+        icon_provider = "devicons",
+        filetypes = {
+            "markdown",
+            "codecompanion",
+        },
+        ignore_buftypes = {},
     },
-    ignore_buftypes = {},
-  },
 })
