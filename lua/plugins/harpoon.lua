@@ -1,4 +1,5 @@
 return {
+    enabled = false,
     lazy = false,
     "ThePrimeagen/harpoon",
     branch = "harpoon2",

@@ -24,6 +24,8 @@ vim.opt.expandtab = true
 
 vim.opt.breakindent = true
 
+vim.opt.guicursor = "n-v-c-i:block-Cursor"
+
 vim.opt.cursorline = true
 vim.opt.colorcolumn = "80,120"
 

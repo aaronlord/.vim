@@ -11,13 +11,21 @@ M.search = function(opts)
     opts.cwd = opts.cwd or vim.uv.cwd()
 
     local function get_dirty_files()
-        local handle = io.popen('git diff --name-only $(git merge-base HEAD main)', 'r')
+        local handle = io.popen(
+            "(git status --porcelain -u | grep '^[ M?]' | awk '{print $2}'; git diff --name-only $(git merge-base HEAD main)) | sort -u",
+            'r'
+        )
+
         if not handle then return {} end
+
         local result = {}
+
         for line in handle:lines() do
             table.insert(result, line)
         end
+
         handle:close()
+
         return result
     end
 

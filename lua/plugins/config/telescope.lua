@@ -46,30 +46,42 @@ vim.keymap.set("n", "<leader>/", builtin.search_history)
 vim.keymap.set("n", "<leader>h", builtin.help_tags)
 vim.keymap.set("n", "<leader>j", builtin.jumplist)
 vim.keymap.set("n", "<leader>q", builtin.quickfixhistory)
-vim.keymap.set("n", "<leader>r", builtin.registers)
+vim.keymap.set({ "n", "v" }, "<leader>r", builtin.registers)
 
 -- LSP
-vim.keymap.set("n", "<C-]>", builtin.lsp_definitions)
-vim.keymap.set("n", "g0", builtin.lsp_document_symbols)
-vim.keymap.set("n", "grr", builtin.lsp_references)
-vim.keymap.set("n", "gri", builtin.lsp_implementations)
-
+vim.keymap.set("n", "gO", builtin.lsp_document_symbols, {
+    desc = "Lists all symbols in the current buffer",
+})
+vim.keymap.set("n", "grr", builtin.lsp_references, {
+    desc = "Lists all the references of the symbol under the cursor",
+})
+vim.keymap.set("n", "gri", builtin.lsp_implementations, {
+    desc = "List all the implementations for the symbol under the cursor",
+})
 vim.keymap.set("n", "<leader>d", function()
     builtin.diagnostics({
         bufnr = 0,
     })
-end)
+end, {
+    desc = "Lists all diagnostics in the current buffer",
+})
 
 vim.keymap.set("n", "<C-f>", function()
     require("plugins.config.telescope.rg").search()
-end)
+end, {
+    desc = "Search within a glob",
+})
 
 vim.keymap.set("n", "<leader>g", function()
     require("plugins.config.telescope.dirty").search()
-end)
+end, {
+    desc = "Search for dirty files",
+})
 
 vim.keymap.set("n", "<leader>vc", function()
     builtin.find_files({
         cwd = vim.fn.stdpath("config")
     })
-end)
+end, {
+    desc = "Find files within nvim config",
+})

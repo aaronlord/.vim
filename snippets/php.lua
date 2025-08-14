@@ -136,6 +136,23 @@ ls.add_snippets('php', {
         classname = f(classname, {}),
     })),
 
+    s('enum', fmt([[
+        <?php
+
+        declare(strict_types=1);
+
+        namespace {namespace};
+
+        enum {classname}
+        {{
+            {}
+        }}
+    ]], {
+        i(0, '//..'),
+        namespace = f(namespace, {}),
+        classname = f(classname, {}),
+    })),
+
     s('dto', fmt([[
         <?php
 
@@ -255,6 +272,33 @@ ls.add_snippets('php', {
         }}
     ]], {
         i(0, '//..'),
+    })),
+
+    s('test', fmt([[
+        <?php
+
+        declare(strict_types=1);
+
+        namespace {namespace};
+
+        use {fqsut};
+
+        mutates({sut}::class);
+
+        {}
+    ]], {
+        i(0, '//..'),
+        namespace = f(namespace, {}),
+        sut = f(function()
+            return vim.fn.expand('%:t:r'):gsub('Test$', '')
+        end, {}),
+        fqsut = f(function()
+            -- remove first two namespace parts
+            local ns = namespace():gsub('^Tests\\[^\\]+\\', '')
+
+            -- add "App\\" prefix
+            return 'App\\' .. ns .. '\\' .. vim.fn.expand('%:t:r'):gsub('Test$', '');
+        end, {})
     })),
 
     s('describe', fmt([[

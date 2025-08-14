@@ -11,3 +11,5 @@ vim.api.nvim_create_autocmd("TermOpen", {
         vim.bo.filetype = "terminal"
     end,
 })
+
+vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")

@@ -5,6 +5,7 @@ local cmp = require("cmp")
 
 cmp.setup({
     sources = {
+        { name = "calc" },
         { name = "luasnip" },
         { name = "nvim_lsp" },
         { name = "buffer" },
