@@ -12,6 +12,8 @@ vim.opt.listchars = {
     extends = ">",
 }
 
+vim.opt.wrap = false
+
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.hlsearch = true
