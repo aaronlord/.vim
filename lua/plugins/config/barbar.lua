@@ -29,3 +29,4 @@ vim.keymap.set("n", "<M-8>", "<CMD>BufferGoto 8<CR>")
 vim.keymap.set("n", "<M-9>", "<CMD>BufferGoto 9<CR>")
 
 vim.keymap.set("n", "<M-c>", "<CMD>BufferClose<CR>")
+vim.keymap.set("n", "<M-x>", "<CMD>BufferCloseAllButCurrent<CR>")

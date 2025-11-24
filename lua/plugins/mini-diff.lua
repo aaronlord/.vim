@@ -1,6 +1,6 @@
 return {
     lazy = false,
-    "echasnovski/mini.diff",
+    "nvim-mini/mini.diff",
     config = function()
         require("plugins.config.mini-diff")
     end,

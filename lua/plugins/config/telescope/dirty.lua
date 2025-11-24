@@ -12,7 +12,7 @@ M.search = function(opts)
 
     local function get_dirty_files()
         local handle = io.popen(
-            "(git status --porcelain -u | grep '^[ M?]' | awk '{print $2}'; git diff --name-only $(git merge-base HEAD main)) | sort -u",
+            "(git status --porcelain | grep '^[AM]' | awk '{print $2}'; git diff --name-only --diff-filter=AM $(git merge-base HEAD main)) | sort -u",
             'r'
         )
 

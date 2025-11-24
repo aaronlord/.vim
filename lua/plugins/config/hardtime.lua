@@ -7,5 +7,11 @@ require("hardtime").setup({
             end,
             length = 3
         },
+        ["[^fFtT]0w"] = {
+            message = function()
+                return "use ^ instead of 0w"
+            end,
+        },
+
     }
 })
