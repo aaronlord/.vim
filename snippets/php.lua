@@ -14,7 +14,7 @@ local rep = require('luasnip.extras').rep
 
 local fmt = require('luasnip.extras.fmt').fmt
 
-local namespace = function()
+local namespace_from_path = function()
     return vim.fn.substitute(
         vim.fn.substitute(
             vim.fn.substitute(
@@ -32,6 +32,59 @@ local namespace = function()
         ''
     )
 end
+
+local function namespace_from_composer()
+    local file_dir = vim.fn.expand('%:p:h')
+    local composer_json = vim.fn.findfile('composer.json', file_dir .. ';')
+
+    if composer_json == "" then
+        return nil
+    end
+
+    local composer_dir = vim.fn.fnamemodify(composer_json, ':h')
+
+    local json = table.concat(vim.fn.readfile(composer_json), "\n")
+    local ok, config = pcall(vim.json.decode, json)
+
+    if not ok or not config.autoload or not config.autoload["psr-4"] then
+        return nil
+    end
+
+    local psr4 = config.autoload["psr-4"]
+    local abs_file = vim.fn.expand('%:p')
+
+    for namespace, path in pairs(psr4) do
+        local abs_base = vim.fn.fnamemodify(composer_dir .. "/" .. path, ':p')
+
+        if abs_file:find(abs_base, 1, true) == 1 then
+            local relative = abs_file:sub(#abs_base + 1)
+
+            -- get only directory path, not filename
+            relative = relative:match("(.*/)")
+            if not relative then
+                return namespace:sub(1, -2)
+            end
+
+            relative = relative:gsub('/', '\\')
+            relative = relative:gsub('[\\/]$', '')
+
+            return namespace .. relative
+        end
+    end
+
+    return nil
+end
+
+local namespace = function()
+    local namespace = namespace_from_composer()
+
+    if namespace == nil then
+        return namespace_from_path()
+    end
+
+    return namespace
+end
+
 
 local classname = function()
     return vim.fn.expand('%:t:r')
