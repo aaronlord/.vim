@@ -33,12 +33,12 @@ local namespace_from_path = function()
     )
 end
 
-local function namespace_from_composer()
+local function namespace()
     local file_dir = vim.fn.expand('%:p:h')
     local composer_json = vim.fn.findfile('composer.json', file_dir .. ';')
 
     if composer_json == "" then
-        return nil
+        return namespace_from_path()
     end
 
     local composer_dir = vim.fn.fnamemodify(composer_json, ':h')
@@ -47,7 +47,7 @@ local function namespace_from_composer()
     local ok, config = pcall(vim.json.decode, json)
 
     if not ok or not config.autoload or not config.autoload["psr-4"] then
-        return nil
+        return namespace_from_path()
     end
 
     local psr4 = config.autoload["psr-4"]
@@ -72,17 +72,7 @@ local function namespace_from_composer()
         end
     end
 
-    return nil
-end
-
-local namespace = function()
-    local namespace = namespace_from_composer()
-
-    if namespace == nil then
-        return namespace_from_path()
-    end
-
-    return namespace
+    return namespace_from_path()
 end
 
 
