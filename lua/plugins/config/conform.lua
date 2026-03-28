@@ -5,8 +5,12 @@
 require("conform").setup({
     -- Define your formatters
     formatters_by_ft = {
+        css = { "prettier" },
         php = { "pint" },
+        typescript = { "prettier" },
         vue = { "prettier" },
+        yml = { "prettier" },
+        markdown = { "prettier" },
     },
     -- Set default options
     default_format_opts = {

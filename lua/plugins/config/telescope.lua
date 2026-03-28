@@ -8,6 +8,7 @@ require("telescope").setup({
     defaults = require("telescope.themes").get_ivy({
         file_ignore_patterns = {
             "^.git",
+            "^.worktrees",
             "^.php-cs-fixer.cache",
             "^.phplint.cache",
             "^.phpunit.cache",
@@ -15,6 +16,7 @@ require("telescope").setup({
             "^.obsidian",
             "^.DS_Store",
             "^.coverage",
+            ".pest",
             "^node_modules",
             "^public",
             "^storage",

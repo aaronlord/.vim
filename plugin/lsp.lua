@@ -1,6 +1,6 @@
 -- UI improvements for nvim's built-in LSP
 vim.diagnostic.config({
-    virtual_text = true,
+    virtual_text = false, -- using tiny-inline-diagnostic instead
     underline = true,
     signs = {
         text = {
