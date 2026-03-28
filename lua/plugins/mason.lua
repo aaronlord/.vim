@@ -1,7 +1,6 @@
 return {
     lazy = false,
     "mason-org/mason-lspconfig.nvim",
-    opts = {},
     dependencies = {
         {
             "mason-org/mason.nvim",
@@ -9,4 +8,7 @@ return {
         },
         "neovim/nvim-lspconfig",
     },
+    config = function()
+        require("plugins.config.mason")
+    end,
 }
