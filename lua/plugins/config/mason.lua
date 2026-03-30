@@ -11,3 +11,11 @@ require("mason").setup({
         },
     },
 });
+
+require("mason-lspconfig").setup({
+    -- ts_ls conflicts with vtsls — vtsls is preferred
+    -- vue_ls is started manually after vtsls attaches (split server ordering)
+    automatic_enable = {
+        exclude = { "ts_ls", "vue_ls" },
+    },
+})

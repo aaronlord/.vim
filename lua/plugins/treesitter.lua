@@ -1,7 +1,7 @@
 return {
     lazy = false,
     "nvim-treesitter/nvim-treesitter",
-    branch = "master",
+    branch = "main",
     dependencies = {
         {
             "OXY2DEV/markview.nvim",
