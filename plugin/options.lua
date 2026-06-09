@@ -43,3 +43,6 @@ vim.opt.undofile = true
 vim.opt.swapfile = false
 
 vim.opt.updatetime = 250
+
+vim.opt.spell = true
+vim.opt.spelllang = "en"

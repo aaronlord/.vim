@@ -37,4 +37,4 @@ ctrl-s          -> in insert mode, display function signature under the cursor
 ctrl-w + d      -> show error/warning message in the line under the cursor
 ```
 
-[1]:http://www.randsinrepose.com/archives/2009/11/02/the_foamy_rules_for_rabid_tools.html
+[1]: http://www.randsinrepose.com/archives/2009/11/02/the_foamy_rules_for_rabid_tools.html

@@ -42,6 +42,7 @@ local builtin = require("telescope.builtin")
 
 vim.keymap.set("n", "<C-p>", builtin.find_files)
 vim.keymap.set("n", "<M-p>", builtin.oldfiles)
+vim.keymap.set("n", "z=", builtin.spell_suggest)
 vim.keymap.set("n", "<leader>b", builtin.buffers)
 vim.keymap.set("n", "<leader>:", builtin.command_history)
 vim.keymap.set("n", "<leader>/", builtin.search_history)
