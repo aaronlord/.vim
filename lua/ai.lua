@@ -50,7 +50,9 @@ local function send_to_tmux(target, content, buffer_name)
     local temp_file = "/tmp/ai_" .. (buffer_name or "content") .. "_" .. os.time()
     local f = io.open(temp_file, "w")
     if f then
-        f:write(content)
+        -- Wrap in bracketed paste escape sequences so the receiving application
+        -- treats newlines as literal characters rather than submit keystrokes.
+        f:write("\x1b[200~" .. content .. "\x1b[201~")
         f:close()
 
         local buf_name = "ai_" .. (buffer_name or "content")
