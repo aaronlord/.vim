@@ -104,7 +104,7 @@ local function decode_html_entities(str)
 end
 
 local function get_current_pr()
-    local handle = io.popen("gh pr view --json number --template '{{.number}}'", 'r')
+    local handle = io.popen("gh pr view --json number --template '{{.number}}' 2>/dev/null", 'r')
     if not handle then
         return nil
     end
@@ -125,7 +125,7 @@ M.create = function()
     end
 
     vim.notify("Checking for existing PR...", vim.log.levels.INFO)
-    local url_handle = io.popen("gh pr view --json url --template '{{.url}}'", 'r')
+    local url_handle = io.popen("gh pr view --json url --template '{{.url}}' 2>/dev/null", 'r')
 
     if url_handle then
         local existing_url = url_handle:read("*a"):match("^%s*(.-)%s*$")
@@ -186,7 +186,7 @@ M.create = function()
                 vim.notify(pr_url .. " (copied to clipboard)", vim.log.levels.INFO)
             else
                 if output:find("already exists") then
-                    local existing_handle = io.popen("gh pr view --json url --template '{{.url}}'", 'r')
+                    local existing_handle = io.popen("gh pr view --json url --template '{{.url}}' 2>/dev/null", 'r')
                     if existing_handle then
                         local existing_url = existing_handle:read("*a"):match("^%s*(.-)%s*$")
                         existing_handle:close()
@@ -251,7 +251,7 @@ end
 
 M.view = function()
     vim.notify("Getting PR URL...", vim.log.levels.INFO)
-    local handle = io.popen("gh pr view --json url --template '{{.url}}'", 'r')
+    local handle = io.popen("gh pr view --json url --template '{{.url}}' 2>/dev/null", 'r')
 
     if not handle then
         vim.notify("Could not find PR for current branch", vim.log.levels.ERROR)
@@ -280,7 +280,7 @@ M.commented_files = function()
         return
     end
 
-    local repo_handle = io.popen("gh repo view --json nameWithOwner --template '{{.nameWithOwner}}'", 'r')
+    local repo_handle = io.popen("gh repo view --json nameWithOwner --template '{{.nameWithOwner}}' 2>/dev/null", 'r')
     if not repo_handle then
         vim.notify("Could not determine repository", vim.log.levels.ERROR)
         return

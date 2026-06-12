@@ -1,0 +1,5 @@
+-- Copy to lua/local.lua (gitignored) and set agent for this machine.
+-- Valid values: "copilot" | "claude"
+return {
+    agent = "copilot",
+}

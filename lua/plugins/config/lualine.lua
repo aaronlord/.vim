@@ -129,6 +129,17 @@ ins_left {
     -- color = { fg = colors.cyan },
 }
 
+ins_left({
+    function()
+        local ok, ai = pcall(require, "ai")
+        if not ok then return "" end
+        local count = ai.queue_count()
+        if count == 0 then return "" end
+        return "✨" .. count
+    end,
+    color = { fg = colors.cyan },
+})
+
 ins_left {
     "diagnostics",
     sources = { "nvim_diagnostic" },
