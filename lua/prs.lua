@@ -1,13 +1,21 @@
 local M = {}
 
 local function get_first_commit_message()
-    local handle = io.popen("git log -1 --pretty=%B 2>/dev/null", 'r')
+    local handle = io.popen("git log --reverse origin/HEAD..HEAD --pretty=%s 2>/dev/null | head -1", 'r')
     if not handle then
         return ""
     end
     local message = handle:read("*a"):match("^%s*(.-)%s*$")
     handle:close()
-    return message or ""
+    if message and message ~= "" then
+        return message
+    end
+    -- fallback: subject line of most recent commit
+    local fb = io.popen("git log -1 --pretty=%s 2>/dev/null", 'r')
+    if not fb then return "" end
+    local fb_msg = fb:read("*a"):match("^%s*(.-)%s*$")
+    fb:close()
+    return fb_msg or ""
 end
 
 local function get_current_branch()

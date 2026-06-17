@@ -135,7 +135,7 @@ ins_left({
         if not ok then return "" end
         local count = ai.queue_count()
         if count == 0 then return "" end
-        return "✨" .. count
+        return "#" .. count
     end,
     color = { fg = colors.cyan },
 })
@@ -144,9 +144,16 @@ ins_left({
     function()
         local ok, ai = pcall(require, "ai")
         if not ok then return "" end
-        local model = ai.model or "default"
-        local mode  = ai.send_mode == "new" and "new pane" or ("pane " .. tostring(ai.tmux_target))
-        return model .. " in " .. mode
+        return ai.model or "default"
+    end,
+    color = { fg = colors.cyan },
+})
+
+ins_left({
+    function()
+        local ok, ai = pcall(require, "ai")
+        if not ok then return "" end
+        return ai.send_mode == "new" and "new" or ("pane " .. tostring(ai.tmux_target))
     end,
     color = { fg = colors.cyan },
 })
