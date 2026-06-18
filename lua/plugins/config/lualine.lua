@@ -1,7 +1,6 @@
 local lualine = require("lualine")
 
 local colors = require("cyberdream.colors").default
-local codecompanion_spinner = require("plugins.config.lualine.codecompanion-spinner")
 
 local conditions = {
     buffer_not_empty = function()
@@ -97,11 +96,6 @@ ins_left {
     padding = { left = 0, right = 1 }, -- We don"t need space before this
 }
 
-ins_left({
-    codecompanion_spinner,
-    color = mode_color,
-})
-
 ins_left {
     "filetype",
     icons_enabled = false,
@@ -142,30 +136,27 @@ ins_left({
 
 ins_left({
     function()
-        local ok, ai = pcall(require, "ai")
+        local ok, plan = pcall(require, "plan")
         if not ok then return "" end
-        return ai.model or "default"
+        return plan.lualine()
     end,
-    color = { fg = colors.cyan },
+    color = { fg = colors.yellow },
 })
 
 ins_left({
     function()
         local ok, ai = pcall(require, "ai")
         if not ok then return "" end
-        return ai.send_mode == "new" and "new" or ("pane " .. tostring(ai.tmux_target))
+        return ai.model or "default"
     end,
     color = { fg = colors.cyan },
 })
-
 ins_left {
     "diagnostics",
     sources = { "nvim_diagnostic" },
     symbols = { error = " ", warn = " ", info = " " },
 }
 
--- Insert mid section. You can make any number of sections in neovim :)
--- for lualine it"s any number greater then 2
 ins_left {
     function()
         return "%="

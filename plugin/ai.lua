@@ -44,6 +44,4 @@ vim.api.nvim_create_user_command("AIModel",
     function() ai.pick_model() end,
     { desc = "Pick AI model" })
 
-vim.api.nvim_create_user_command("AIToggleMode",
-    function() ai.toggle_send_mode() end,
-    { desc = "Toggle AI send mode (new window / existing pane)" })
+

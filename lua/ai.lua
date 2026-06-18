@@ -12,7 +12,7 @@ vim.fn.mkdir(DONE_DIR, "p")
 vim.fn.mkdir(ATTENTION_DIR, "p")
 
 M.tmux_target        = 2
-M.send_mode          = "pane"              -- "new" = fresh pi window per prompt; "pane" = existing target
+-- queue prompts always go to pane M.tmux_target; visual tasks always open a new window
 M.model              = "claude-sonnet-4.6" -- set via :AIModel or <C-m> in a task pane
 M._task_counter      = 0  -- kept for backwards compat; window names now use random IDs
 M.visual_tasks       = {}
@@ -130,43 +130,20 @@ function M.pick_model()
     end)
 end
 
-function M.toggle_send_mode()
-    M.send_mode = M.send_mode == "pane" and "new" or "pane"
-    vim.cmd("redrawstatus!")
-    vim.notify("[ai] Send mode: " .. M.send_mode, vim.log.levels.INFO)
-end
-
 -- ─── Dispatch ─────────────────────────────────────────────────────────────────
 
--- Open a fresh pi window, optionally set model, send prompt. Returns window_id.
-local function dispatch_new_window(prompt)
-    M._task_counter   = M._task_counter + 1
-    local window_name = "pi-" .. random_id()
-    local window_id   = open_pi_task_pane(window_name, M.model)
-    if not window_id then return nil end
-    vim.defer_fn(function()
-        tmux_paste(window_id, prompt, "prompt")
-        vim.fn.system(string.format("tmux send-keys -t %q Enter", window_id))
-    end, 3000)
-    return window_id
-end
-
 function M._dispatch_prompt(prompt)
-    if M.send_mode == "new" then
-        dispatch_new_window(prompt)
+    if is_agent_running(M.tmux_target) then
+        tmux_paste(M.tmux_target, prompt, "prompt", true)
+        vim.wait(250)
+        vim.fn.system(string.format("tmux send-keys -t %q Enter", M.tmux_target))
     else
-        if is_agent_running(M.tmux_target) then
-            tmux_paste(M.tmux_target, prompt, "prompt", true)
-            vim.wait(250)
-            vim.fn.system(string.format("tmux send-keys -t %q Enter", M.tmux_target))
-        else
-            tmux_paste(M.tmux_target, M.agent.cmd, "cmd", true)
-            vim.fn.system(string.format("tmux send-keys -t %q Enter", M.tmux_target))
-            vim.wait(3000)
-            tmux_paste(M.tmux_target, prompt, "prompt", true)
-            vim.wait(250)
-            vim.fn.system(string.format("tmux send-keys -t %q Enter", M.tmux_target))
-        end
+        tmux_paste(M.tmux_target, M.agent.cmd, "cmd", true)
+        vim.fn.system(string.format("tmux send-keys -t %q Enter", M.tmux_target))
+        vim.wait(3000)
+        tmux_paste(M.tmux_target, prompt, "prompt", true)
+        vim.wait(250)
+        vim.fn.system(string.format("tmux send-keys -t %q Enter", M.tmux_target))
     end
 end
 
