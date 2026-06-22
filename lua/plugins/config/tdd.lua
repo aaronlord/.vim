@@ -14,7 +14,7 @@ tdd.setup({
                     return string.format('magnus pest --stop-on-defect %s --filter "%s"', file, test_name)
                 else
                     return string.format(
-                        'magnus pest --stop-on-defect --coverage-cobertura .coverage/cobertura.single.xml %s',
+                        'magnus pest --stop-on-defect %s',
                         file)
                 end
             end,
@@ -43,12 +43,12 @@ vim.keymap.set("n", "<leader>tj", function()
 end, { desc = "Goto the sut or show all test options to select from" })
 
 vim.keymap.set("n", "<leader>tr", function()
-    tdd.clear_coverage_cache()
+    -- tdd.clear_coverage_cache()
     tdd.run_test_file()
 end, { desc = "Run the current test file" })
 
 vim.keymap.set('n', '<leader><leader>tr', function()
-    tdd.clear_coverage_cache()
+    -- tdd.clear_coverage_cache()
     tdd.run_test()
 end, { desc = "Run the current test within a file" })
 
