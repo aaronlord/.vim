@@ -23,9 +23,9 @@ tdd.setup({
         vitest = {
             command = function(file, _, line_number)
                 if line_number then
-                    return string.format('magnus npm run test:run -- %s:%s', file, line_number)
+                    return string.format('magnus pnpm run test:run -- %s:%s', file, line_number)
                 else
-                    return string.format('magnus npm run test:run -- %s', file)
+                    return string.format('magnus pnpm run test:run -- %s', file)
                 end
             end,
             -- run_test = run,

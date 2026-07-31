@@ -11,15 +11,15 @@ vim.fn.mkdir(TASKS_DIR, "p")
 vim.fn.mkdir(DONE_DIR, "p")
 vim.fn.mkdir(ATTENTION_DIR, "p")
 
-M.tmux_target        = 2
+M.tmux_target   = 2
 -- queue prompts always go to pane M.tmux_target; visual tasks always open a new window
-M.model              = "claude-sonnet-4.6" -- set via :AIModel or <C-m> in a task pane
-M._task_counter      = 0  -- kept for backwards compat; window names now use random IDs
-M.visual_tasks       = {}
-M.queue              = {}
-M.last_prompt        = nil
+M.model         = "github-copilot/claude-sonnet-5" -- set via :AIModel or <C-m> in a task pane
+M._task_counter = 0                 -- kept for backwards compat; window names now use random IDs
+M.visual_tasks  = {}
+M.queue         = {}
+M.last_prompt   = nil
 
-M.agents             = {
+M.agents        = {
     copilot = { cmd = "gh copilot", process_pattern = "gh copilot" },
     claude  = { cmd = "claude", process_pattern = "claude" },
     pi      = { cmd = "pi", process_pattern = "pi" },
@@ -121,7 +121,7 @@ function M.pick_model()
     for line in raw:gmatch("[^\n]+") do
         local cols = {}
         for col in line:gmatch("%S+") do table.insert(cols, col) end
-        if #cols >= 2 and cols[1] ~= "provider" then table.insert(names, cols[2]) end
+        if #cols >= 2 and cols[1] ~= "provider" then table.insert(names, cols[1] .. "/" .. cols[2]) end
     end
     vim.ui.select(names, { prompt = "Model:" }, function(choice)
         if not choice then return end
@@ -511,7 +511,7 @@ function M.on_task_done(task)
             return
         end
         local disk_content = fh:read("*a"); fh:close()
-        local disk_lines   = vim.split(disk_content, "\n", { plain = true })
+        local disk_lines = vim.split(disk_content, "\n", { plain = true })
         if disk_lines[#disk_lines] == "" then table.remove(disk_lines) end
 
         -- Re-read extmarks — user may have added/removed lines while agent worked.
@@ -522,8 +522,8 @@ function M.on_task_done(task)
             vim.notify("[ai] task done but selection marks are gone", vim.log.levels.WARN)
             return
         end
-        local start_row = sd[1]
-        local end_row   = (#ed > 0) and ed[1] or sd[1]
+        local start_row    = sd[1]
+        local end_row      = (#ed > 0) and ed[1] or sd[1]
 
         -- Extract the agent's replacement lines from the disk file.
         -- Assumes the agent only changed content within the original selection;
@@ -533,10 +533,10 @@ function M.on_task_done(task)
             or vim.api.nvim_buf_line_count(task.buffer)
         local orig_end     = task.orig_end_row or end_row
         local suffix_count = orig_total - orig_end - 1
-        local agent_start  = prefix_count          -- 0-indexed into disk_lines
-        local agent_end    = #disk_lines - suffix_count - 1  -- 0-indexed, inclusive
+        local agent_start  = prefix_count                   -- 0-indexed into disk_lines
+        local agent_end    = #disk_lines - suffix_count - 1 -- 0-indexed, inclusive
         local lines        = {}
-        for i = agent_start + 1, agent_end + 1 do  -- convert to 1-indexed
+        for i = agent_start + 1, agent_end + 1 do           -- convert to 1-indexed
             table.insert(lines, disk_lines[i])
         end
         if lines[#lines] == "" then table.remove(lines) end
@@ -571,7 +571,7 @@ function M.on_task_done(task)
         task.review_start_row = start_row
         task.review_end_row   = new_end
 
-        local sd2 = vim.api.nvim_buf_get_extmark_by_id(task.buffer, tracking_nsid, task.start_mark, {})
+        local sd2             = vim.api.nvim_buf_get_extmark_by_id(task.buffer, tracking_nsid, task.start_mark, {})
         if sd2 and #sd2 > 0 then
             vim.api.nvim_buf_set_extmark(task.buffer, tracking_nsid, sd2[1], sd2[2], {
                 id            = task.start_mark,
@@ -809,8 +809,8 @@ function M.open_visual_task_buffer()
             vim.notify("[ai] Selection marks lost — was the buffer wiped?", vim.log.levels.ERROR); return
         end
 
-        local cur_start    = s[1]
-        local cur_end      = (#e > 0) and e[1] or s[1]
+        local cur_start           = s[1]
+        local cur_end             = (#e > 0) and e[1] or s[1]
 
         -- Store original positions so on_task_done can extract the agent's
         -- replacement from the disk file without reloading the whole buffer.
@@ -818,15 +818,15 @@ function M.open_visual_task_buffer()
         task.orig_end_row         = cur_end
         task.orig_file_line_count = vim.api.nvim_buf_line_count(source_buf)
 
-        local code         = table.concat(
+        local code                = table.concat(
             vim.api.nvim_buf_get_lines(source_buf, cur_start, cur_end + 1, false), "\n")
 
-        local ctx_start    = math.max(0, cur_start - 50)
-        local ctx_end      = math.min(vim.api.nvim_buf_line_count(source_buf), cur_end + 51)
-        local surrounding  = table.concat(
+        local ctx_start           = math.max(0, cur_start - 50)
+        local ctx_end             = math.min(vim.api.nvim_buf_line_count(source_buf), cur_end + 51)
+        local surrounding         = table.concat(
             vim.api.nvim_buf_get_lines(source_buf, ctx_start, ctx_end, false), "\n")
 
-        local task_data    = {
+        local task_data           = {
             id              = id,
             file            = vim.api.nvim_buf_get_name(source_buf),
             startLine       = cur_start + 1,
@@ -838,7 +838,7 @@ function M.open_visual_task_buffer()
             model           = M.model,
         }
 
-        local ok2, encoded = pcall(vim.fn.json_encode, task_data)
+        local ok2, encoded        = pcall(vim.fn.json_encode, task_data)
         if not ok2 then
             vim.notify("[ai] Failed to encode task: " .. tostring(encoded), vim.log.levels.ERROR); return
         end
